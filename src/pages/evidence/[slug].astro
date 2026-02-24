@@ -1,0 +1,55 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout/index.astro';
+import Callout from '../../components/foundation/Callout/index.astro';
+import styles from '../evidence/styles.module.css';
+
+export async function getStaticPaths() {
+  const evidenceEntries = await getCollection('evidence');
+  return evidenceEntries.map((entry: CollectionEntry<'evidence'>) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'evidence'>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const pageTitle = entry.data.title;
+---
+
+<BaseLayout title={pageTitle} currentPath="/evidence">
+  <article class={styles.page}>
+    <div class={styles.pageInner}>
+      <a href="/evidence" class={styles.backLink}>← Back to Evidence</a>
+      
+      <header class={styles.header}>
+        <h1>{entry.data.title}</h1>
+        <p>{entry.data.description}</p>
+      </header>
+      
+      <div class={styles.content}>
+        <Content components={{ info: Callout, quote: Callout }} />
+        
+        {entry.data.externalResources && entry.data.externalResources.length > 0 && (
+          <div class={styles.resources}>
+            <h3>External Resources</h3>
+            <ul>
+              {entry.data.externalResources.map((resource: { title: string; url: string; type?: string }) => (
+                <li>
+                  <a href={resource.url} target="_blank" rel="noopener noreferrer">
+                    → {resource.title} {resource.type && `(${resource.type})`}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
+  </article>
+</BaseLayout>

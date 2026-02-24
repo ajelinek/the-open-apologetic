@@ -1,0 +1,117 @@
+.hero {
+  background: linear-gradient(135deg, var(--color-burgundy-dark) 0%, var(--color-burgundy) 100%);
+  color: var(--color-cream);
+  padding: var(--space-16) var(--space-4);
+  text-align: center;
+}
+
+.heroInner {
+  max-width: var(--max-prose-width);
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: var(--text-4xl);
+  color: var(--color-cream);
+  margin-bottom: var(--space-4);
+}
+
+.subheader {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-style: italic;
+  color: var(--color-gold);
+  margin-bottom: var(--space-6);
+  line-height: 1.5;
+}
+
+.intro {
+  font-size: var(--text-lg);
+  line-height: 1.8;
+  color: var(--color-cream);
+  opacity: 0.95;
+}
+
+.section {
+  padding: var(--space-12) var(--space-4);
+}
+
+.sectionInner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-6);
+}
+
+/* Journey Timeline */
+.journey {
+  background-color: var(--color-cream-light);
+}
+
+.journeySteps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.journeyStep {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+
+.stepNumber {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-burgundy);
+  color: var(--color-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: var(--text-xl);
+}
+
+.stepContent h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-2);
+  font-size: var(--text-xl);
+}
+
+.stepContent p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+/* CTA Section */
+.cta {
+  background-color: var(--color-burgundy);
+  color: var(--color-cream);
+  text-align: center;
+  padding: var(--space-12) var(--space-4);
+}
+
+.cta h2 {
+  color: var(--color-cream);
+  margin-bottom: var(--space-4);
+}
+
+.cta p {
+  max-width: 600px;
+  margin: 0 auto var(--space-6);
+  font-size: var(--text-lg);
+}

@@ -1,0 +1,45 @@
+---
+import styles from './styles.module.css';
+
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'gold';
+  size?: 'small' | 'medium' | 'large';
+  fullWidth?: boolean;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
+  class?: string;
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'medium',
+  fullWidth = false,
+  type = 'button',
+  disabled = false,
+  class: className
+} = Astro.props;
+
+const classList = [
+  styles.button,
+  styles[variant],
+  styles[size],
+  fullWidth && styles.fullWidth,
+  className
+].filter(Boolean);
+---
+
+{href ? (
+  <a href={href} class:list={classList}>
+    <slot />
+  </a>
+) : (
+  <button 
+    type={type} 
+    disabled={disabled}
+    class:list={classList}
+  >
+    <slot />
+  </button>
+)}

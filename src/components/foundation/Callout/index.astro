@@ -1,0 +1,30 @@
+---
+import styles from './styles.module.css';
+
+interface Props {
+  type?: 'info' | 'quote' | 'warning';
+  title?: string;
+}
+
+const {
+  type = 'info',
+  title
+} = Astro.props;
+
+const icons = {
+  info: 'ℹ️',
+  quote: '💬',
+  warning: '⚠️'
+};
+---
+
+<aside class:list={[styles.callout, styles[type]]}>
+  {(title || type !== 'info') && (
+    <div class={styles.calloutTitle}>
+      {icons[type]} {title || (type === 'quote' ? 'Quote' : type === 'warning' ? 'Note' : 'Info')}
+    </div>
+  )}
+  <div class={styles.calloutContent}>
+    <slot />
+  </div>
+</aside>

@@ -1,0 +1,73 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout/index.astro';
+import Card from '../../components/foundation/Card/index.astro';
+import styles from './styles.module.css';
+
+const allEvidence = await getCollection('evidence');
+
+// Group evidence by category
+const grouped: Record<string, CollectionEntry<'evidence'>[]> = {
+  scientific: allEvidence.filter(e => e.data.category === 'scientific').sort((a, b) => a.data.order - b.data.order),
+  historical: allEvidence.filter(e => e.data.category === 'historical').sort((a, b) => a.data.order - b.data.order),
+  catholic: allEvidence.filter(e => e.data.category === 'catholic').sort((a, b) => a.data.order - b.data.order),
+};
+
+const evidenceCategories = [
+  {
+    title: 'Scientific Evidence',
+    items: grouped.scientific.map((entry: CollectionEntry<'evidence'>) => ({
+      title: entry.data.title,
+      description: entry.data.description,
+      href: `/evidence/${entry.slug}`,
+      icon: entry.data.icon || '🔬'
+    }))
+  },
+  {
+    title: 'Historical & Biblical Evidence',
+    items: grouped.historical.map((entry: CollectionEntry<'evidence'>) => ({
+      title: entry.data.title,
+      description: entry.data.description,
+      href: `/evidence/${entry.slug}`,
+      icon: entry.data.icon || '📚'
+    }))
+  },
+  {
+    title: 'Catholic Miracles',
+    items: grouped.catholic.map((entry: CollectionEntry<'evidence'>) => ({
+      title: entry.data.title,
+      description: entry.data.description,
+      href: `/evidence/${entry.slug}`,
+      icon: entry.data.icon || '✝️'
+    }))
+  }
+];
+---
+
+<BaseLayout title="Evidence" currentPath="/evidence">
+  <section class={styles.page}>
+    <div class={styles.pageInner}>
+      <div class={styles.header}>
+        <h1>Evidence for the Faith</h1>
+        <p>
+          Explore multiple independent lines of evidence that together build a cumulative case 
+          for Catholic Christianity.
+        </p>
+      </div>
+      
+      {evidenceCategories.map((category) => (
+        <div class={styles.category}>
+          <h2 class={styles.categoryTitle}>{category.title}</h2>
+          <div class={styles.grid}>
+            {category.items.map((item) => (
+              <Card href={item.href} variant="evidence" icon={item.icon}>
+                <span slot="title">{item.title}</span>
+                {item.description}
+              </Card>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

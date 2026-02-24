@@ -1,0 +1,40 @@
+---
+import styles from './styles.module.css';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class={styles.footer}>
+  <div class={styles.footerInner}>
+    <div class={styles.footerContent}>
+      <div class={styles.footerSection}>
+        <h3>About This Site</h3>
+        <p>
+          Building a cumulative case for Catholic Christianity through scientific, historical, and spiritual evidence.
+        </p>
+      </div>
+      
+      <div class={styles.footerSection}>
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/evidence">All Evidence</a></li>
+          <li><a href="/evidence/fine-tuned-universe">Fine-Tuned Universe</a></li>
+          <li><a href="/evidence/manuscript-evidence">Manuscript Evidence</a></li>
+        </ul>
+      </div>
+      
+      <div class={styles.footerSection}>
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="https://www.amazon.com/Mere-Christianity-C-S-Lewis/dp/0060652926" target="_blank" rel="noopener noreferrer">Mere Christianity - C.S. Lewis</a></li>
+          <li><a href="https://www.youtube.com/@CSLewisDoodle" target="_blank" rel="noopener noreferrer">CS Lewis Doodles</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class={styles.footerBottom}>
+      <p>© {currentYear} Evidence of Christ. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
