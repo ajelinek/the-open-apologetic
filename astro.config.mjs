@@ -4,6 +4,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://evidence-of-christ.com',
+  site: 'https://the-open-apologetic.com',
   integrations: [sitemap()],
 });

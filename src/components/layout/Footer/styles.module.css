@@ -50,11 +50,22 @@
   color: var(--color-gold);
 }
 
-.footerBottom {
-  margin-top: var(--space-8);
-  padding-top: var(--space-6);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: center;
+.githubLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-cream);
+  text-decoration: none;
   font-size: var(--text-sm);
-  opacity: 0.7;
+  margin-top: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  transition: all var(--transition-fast);
+}
+
+.githubLink:hover {
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+  background: rgba(255, 255, 255, 0.05);
 }

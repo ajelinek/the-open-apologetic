@@ -1,4 +1,4 @@
-# Evidence for Christ
+# The Open Apologetic
 
 A website presenting evidence for Catholic Christianity through scientific, historical, and miraculous evidence.
 
@@ -58,4 +58,4 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for instructions on adding new evidence
 
 ## License
 
-MIT
+GNU General Public License v3 (GPLv3)

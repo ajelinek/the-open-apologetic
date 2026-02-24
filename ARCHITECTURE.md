@@ -1,4 +1,4 @@
-# Architecture Guidance — Evidence of Christ Website
+# Architecture Guidance — The Open Apologetic
 
 This document provides architectural recommendations for the Astro.js apologetics website based on your requirements and the vibing ruleset.
 
@@ -81,7 +81,7 @@ src/
 - Use `@astrojs/seo` package for meta tag management
 
 ### Meta Tags
-- Dynamic title templates: `Evidence for [Topic] | Evidence of Christ`
+- Dynamic title templates: `Evidence for [Topic] | The Open Apologetic`
 - Open Graph tags for social sharing
 - Twitter Card meta tags
 - Canonical URLs for all pages

@@ -1,4 +1,4 @@
-# Contributing to Evidence for Christ
+# Contributing to The Open Apologetic
 
 Thank you for your interest in contributing! This guide explains how to add new evidence pages to the site using markdown content collections.
 
