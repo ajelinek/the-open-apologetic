@@ -62,6 +62,14 @@ This document provides a comprehensive list of all available agents organized by
 
 - @vibing/agents/research-agent.md - Comprehensive research, technology evaluation, and solution analysis. Use for researching technology options, evaluating solutions, analyzing pros/cons in application context, gathering information from codebase, internet, Context7, and documentation. This is a primary agent with read-only access; it does not modify files or code.
 
+## Content Creation Agents
+
+**Theological content writing and research**
+
+- @vibing/agents/theologian-expert.md - Theological research, Catholic doctrine verification, and fact-checking. Use for researching theological topics, verifying facts against Church teaching, and ensuring doctrinal accuracy
+
+- @vibing/agents/text-writer.md - Professional content writing for lay audiences. Use for transforming theological research into accessible, engaging content written in a conversational tone
+
 ## Specialized Agents
 
 **Domain-specific expertise and specialized tasks**
