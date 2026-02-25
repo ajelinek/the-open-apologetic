@@ -26,19 +26,23 @@ By this test, the New Testament blows every other ancient document out of the wa
 |--------|---------------|---------------|-------|--------|
 | Greek manuscripts | 5,800+ | 643 | 7 | 10 |
 | Total (all languages) | 25,000+ | 1,700 | 20 | 20 |
-| Time gap from original | 25-75 years | 500 years | 1,200 years | 1,000 years |
+| Time gap from original | Approximately 25-75 years (range of scholarly estimates) | 500 years | 1,200 years | 1,000 years |
 
 ## What This Means
 
-Think about what this means. The earliest copy of Homer's Iliad we have is from about 500 years after it was written. For the New Testament, we have fragments within 25 years of the original. That is like having a copy of a document written in the 1990s that we can compare to copies from the 2020s. Incredibly close.
+Think about what this means. The earliest copy of Homer's Iliad we have is from about 500 years after it was written. For the New Testament, we have fragments within approximately 25-75 years of the original. That is like having a copy of a document written in the 1990s that we can compare to copies from the 2020s. Incredibly close.
+
+One remarkable example is Papyrus P52, a small fragment from the Gospel of John housed at the Rylands Library in Manchester, England. Dated to around 125 AD, it is the oldest extant New Testament manuscript we possess. This tiny scrap—containing just a few verses—gives us a window into the earliest days of Christian scripture, showing how quickly the texts were copied and distributed.
 
 :::info
-**Accuracy Rate:** Scholars calculate the New Testament is 99.5% pure in its transmission. The 0.5% variance consists entirely of spelling differences, word order changes, and minor variations that never affect a single Christian doctrine. No essential teaching is in doubt.
+**Accuracy Rate:** Scholars calculate the New Testament text has been transmitted with high fidelity. The 99.5% figure is a simplification—there are actually around 300,000+ textual variants among the manuscripts. However, these variants are overwhelmingly minor (spelling differences, word order) and none affect any core Christian doctrine. Scholars agree that no essential teaching is in doubt.
 :::
 
 ## The Catholic Connection
 
 The Catholic Church has played an essential role in preserving Scripture. For 2,000 years, the Church has carefully copied, translated, and transmitted the biblical texts. The Council of Trent (1546) affirmed that the Vulgate was the authentic Latin version, and the Church has maintained this tradition of faithful transmission.
+
+The Catechism of the Catholic Church teaches that God is the author of Scripture, and the Church guards and interprets it authentically (CCC 74-82). This doesn't mean the Church adds to or changes God's Word—but that through the Holy Spirit, she preserves and proclaims the truth handed down from the apostles.
 
 > "The New Testament is concealed in the Old, and the Old Testament is revealed in the New."
 > — St. Augustine

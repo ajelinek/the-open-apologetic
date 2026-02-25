@@ -121,6 +121,18 @@
       "mode": "subagent",
       "temperature": 0.15,
       "prompt": "{file:./vibing/agents/test-executor.md}"
+    },
+    "theologian-expert": {
+      "description": "Theological research, Catholic doctrine verification, and fact-checking",
+      "mode": "subagent",
+      "temperature": 0.2,
+      "prompt": "{file:./vibing/agents/theologian-expert.md}"
+    },
+    "text-writer": {
+      "description": "Professional content writing for lay audiences",
+      "mode": "subagent",
+      "temperature": 0.7,
+      "prompt": "{file:./vibing/agents/text-writer.md}"
     }
   }
 }

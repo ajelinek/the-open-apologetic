@@ -32,10 +32,16 @@ The information density is staggering. As information theorist William Dembski n
 
 In our experience, information always comes from a mind. Books come from authors. Software comes from programmers. Code comes from coders.
 
-DNA contains information—specifically, the instructions for building and maintaining a living organism. Where did this information come from?
+Proponents of intelligent design argue that DNA contains information—specifically, the instructions for building and maintaining a living organism—and that this points to an intelligent source.
+
+Some scientists, including those who advocate for intelligent design, argue that information always comes from a mind. Books come from authors. Software comes from programmers. Code comes from coders. DNA contains information—where did it come from?
 
 :::quote
-"DNA is not merely a chemical molecule; it is a information storage system. And as far as we know, information only comes from intelligence."
+"DNA is not merely a chemical molecule; it is an information storage system. And as far as we know, information only comes from intelligence."
+:::
+
+:::info
+It's worth noting that mainstream scientists largely dispute the intelligent design interpretation, arguing that natural processes can produce information. This remains an active scientific debate. However, many find the complexity of DNA points toward intentional design.
 :::
 
 ## The Catholic Connection

@@ -3,31 +3,35 @@ import BaseLayout from '../layouts/BaseLayout/index.astro';
 import Card from '../components/foundation/Card/index.astro';
 import Button from '../components/foundation/Button/index.astro';
 import Callout from '../components/foundation/Callout/index.astro';
+import { getCollection } from 'astro:content';
+import { sortByOrder } from '../utils/sorting';
 import styles from './styles.module.css';
+
+const baseUrl = '/the-open-apologetic';
 
 const evidenceTopics = [
   {
     title: 'Scientific Evidence',
     description: 'Explore scientific discoveries that point toward the existence of God and the design of the universe.',
-    href: '/evidence/scientific',
+    href: baseUrl + '/evidence/scientific',
     icon: '🔬'
   },
   {
     title: 'Historical Evidence',
     description: 'Discover historical facts and archaeological findings that support the credibility of the Bible.',
-    href: '/evidence/historical',
+    href: baseUrl + '/evidence/historical',
     icon: '📜'
   },
   {
     title: 'Biblical Evidence',
     description: 'Examine manuscript evidence, biblical prophecies, and textual analysis of Scripture.',
-    href: '/evidence/biblical',
+    href: baseUrl + '/evidence/biblical',
     icon: '📖'
   },
   {
     title: 'Catholic Miracles',
     description: 'Learn about supernatural occurrences that attest to the truth of Catholic teachings.',
-    href: '/evidence/catholic',
+    href: baseUrl + '/evidence/catholic',
     icon: '✝️'
   }
 ];
@@ -75,7 +79,7 @@ const journeySteps = [
   
   <section class={styles.section}>
     <div class={styles.sectionInner}>
-      <h2 class={styles.sectionTitle}>Scientific & Historical Evidence</h2>
+      <h2 class={styles.sectionTitle}>Explore the Evidence</h2>
       <div class={styles.grid}>
         {evidenceTopics.map((topic) => (
           <Card href={topic.href} icon={topic.icon}>
@@ -121,7 +125,7 @@ const journeySteps = [
         Dive into the evidence. Each topic builds on others to create a cumulative case 
         for the truth of Catholic Christianity.
       </p>
-      <Button href="/evidence" variant="gold" size="large">
+      <Button href={baseUrl + '/evidence'} variant="gold" size="large">
         View All Evidence →
       </Button>
     </div>
