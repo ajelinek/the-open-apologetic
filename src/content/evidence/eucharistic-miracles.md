@@ -22,18 +22,16 @@ The Catholic Church teaches that in the Eucharist, the bread and wine become the
 
 In 8th century Italy, a monk celebrating Mass reported seeing the bread and wine transform into living flesh and blood. The specimen was preserved and later examined:
 
-- **Year of occurrence:** 8th century (circa 700-750 AD)
+- **Year of occurrence:** 8th century (exact date unknown)
 - **Location:** Lanciano, Italy
 - **Findings:** The flesh is human cardiac tissue; the blood is human blood
-- **Blood type:** AB (matches the Shroud of Turin)
 
-In 1971, Dr. Oskar C. Wedow examined the relics and concluded: "This is a great miracle."
+In 1971, Dr. O. Linoli examined the relics and concluded: "This is a great miracle."
 
 ## Other Documented Cases
 
 - **Santarém, Portugal (13th century):** consecrated hosts found bleeding
 - **Buenos Aires (1996):** Host found bleeding, confirmed as human blood tissue
-- **Bl. Chiara Corbella:** Miraculous preservation during near-death experience
 
 :::info
 These miracles have been investigated by scientists, doctors, and the Church. They point to something real happening in the Eucharist.
@@ -41,4 +39,10 @@ These miracles have been investigated by scientists, doctors, and the Church. Th
 
 ## The Catholic Connection
 
-The Eucharist is the "source and summit" of Catholic faith. The miracles of the Eucharist are not optional beliefs—they're reminders that what the Church teaches about the Real Presence is more than doctrine. It's reality.
+The Eucharist is the "source and summit" of Catholic faith. The Church teaches that the bread and wine truly become Christ's Body and Blood—this is called the Real Presence, and it's a core teaching that Catholics believe.
+
+But here's something important: specific eucharistic miracles like the ones in Lanciano, Santarém, or Buenos Aires are considered **private revelations**. They're powerful signs that point to the truth of the Real Presence, but the Church doesn't require belief in these particular miracles the way it requires belief in the Real Presence itself.
+
+Think of it like this: if a friend tells you they had an amazing experience of God's love at a retreat, you might be inspired by their story—but you're not obligated to believe their specific experience happened exactly as they described. Private revelations work similarly. They're invitations to deeper faith, not tests of orthodoxy.
+
+What Catholics ARE required to believe is that Jesus is truly present in the Eucharist—Body, Blood, Soul, and Divinity. The miracles give us something concrete to ponder, a moment where the invisible becomes visible. They're not required to have faith, but they sure do make that faith easier to grasp.

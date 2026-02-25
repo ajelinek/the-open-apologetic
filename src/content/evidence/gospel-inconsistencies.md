@@ -18,7 +18,7 @@ externalResources:
 
 Critics often claim the Gospels contradict each other. They point to differences in details: What day was Jesus crucified? How many angels were at the tomb? What were Jesus's exact words on the cross?
 
-But here's the thing: these "inconsistencies" actually prove the Gospels are authentic.
+But here's the thing: these "inconsistencies" are consistent with the Gospels being authentic—they don't undermine their reliability.
 
 ## Why Variation Proves Authenticity
 
@@ -28,7 +28,7 @@ But if four people independently testified to what they actually saw—with diff
 
 ### Examples of "Inconsistencies"
 
-- **Number of women at the tomb:** Matthew mentions one angel; Mark, Luke, and John mention two. Real witnesses remember details differently.
+- **Number of women at the tomb:** Matthew and Mark mention one angel; Luke and John mention two. Real witnesses remember details differently.
 - **Crucifixion day:** John seems to indicate a different day than the Synoptics—but reading carefully, he's describing the day from a different starting point. Same event, different perspective.
 - **Temple curtain:** Did it tear from top to bottom (Mark) or from top to bottom AND earthquakes happened (Matthew)? Both can be true—Matthew simply includes additional details.
 
@@ -38,4 +38,4 @@ The Gospel writers were not copying from each other or colluding—they were ind
 
 ## The Catholic Connection
 
-The Catholic Church has always affirmed the inspiration and trustworthiness of all four Gospels. The Church recognizes that the Holy Spirit guided the Gospel writers while preserving their human perspectives and experiences. The "inconsistencies" don't undermine faith—they reveal the authentic witness of real people telling the truth.
+The Catholic Church has always affirmed the inspiration and trustworthiness of all four Gospels. The Church recognizes that the Holy Spirit guided the Gospel writers while preserving their human perspectives and experiences (see CCC 109-141). The "inconsistencies" don't undermine faith—they reveal the authentic witness of real people telling the truth.
