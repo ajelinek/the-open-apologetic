@@ -4,12 +4,29 @@ import { sortByOrder, filterAndSortByCategory } from '../../utils/sorting';
 import BaseLayout from '../../layouts/BaseLayout/index.astro';
 import Card from '../../components/foundation/Card/index.astro';
 import styles from './styles.module.css';
+import categoryStyles from './category.module.css';
 
 const baseUrl = '/the-open-apologetic';
 
 const allEvidence = await getCollection('evidence');
 
-// Group evidence by category
+const allCategories = ['scientific', 'historical', 'biblical', 'philosophy', 'doctrine'];
+const categoryLabels: Record<string, string> = {
+  scientific: 'Scientific Evidence',
+  historical: 'Historical Evidence',
+  biblical: 'Biblical Evidence',
+  philosophy: 'Philosophy & Apologetics',
+  doctrine: 'Catholic Doctrine'
+};
+
+const categoryDescriptions: Record<string, string> = {
+  scientific: 'Evidence from science that points toward the existence of God and the design of the universe.',
+  historical: 'Historical facts and archaeological discoveries that support the credibility of the Bible and Christianity.',
+  biblical: 'Internal biblical evidence including manuscript accuracy, prophecies, and textual analysis.',
+  philosophy: 'Philosophical arguments for God\'s existence and responses to common objections against faith.',
+  doctrine: 'Supernatural occurrences and teachings that attest to the truth of Catholic doctrine and the intercession of saints.'
+};
+
 const grouped: Record<string, CollectionEntry<'evidence'>[]> = {
   scientific: filterAndSortByCategory(allEvidence, 'scientific'),
   historical: filterAndSortByCategory(allEvidence, 'historical'),
@@ -18,79 +35,77 @@ const grouped: Record<string, CollectionEntry<'evidence'>[]> = {
   doctrine: filterAndSortByCategory(allEvidence, 'doctrine'),
 };
 
-const evidenceCategories = [
-  {
-    title: 'Scientific Evidence',
-    items: grouped.scientific.map((entry: CollectionEntry<'evidence'>) => ({
-      title: entry.data.title,
-      description: entry.data.description,
-      href: baseUrl + '/evidence/' + entry.slug,
-      icon: entry.data.icon || '🔬'
-    }))
-  },
-  {
-    title: 'Historical Evidence',
-    items: grouped.historical.map((entry: CollectionEntry<'evidence'>) => ({
-      title: entry.data.title,
-      description: entry.data.description,
-      href: baseUrl + '/evidence/' + entry.slug,
-      icon: entry.data.icon || '📜'
-    }))
-  },
-  {
-    title: 'Biblical Evidence',
-    items: grouped.biblical.map((entry: CollectionEntry<'evidence'>) => ({
-      title: entry.data.title,
-      description: entry.data.description,
-      href: baseUrl + '/evidence/' + entry.slug,
-      icon: entry.data.icon || '📖'
-    }))
-  },
-  {
-    title: 'Philosophy & Apologetics',
-    items: grouped.philosophy.map((entry: CollectionEntry<'evidence'>) => ({
-      title: entry.data.title,
-      description: entry.data.description,
-      href: baseUrl + '/evidence/' + entry.slug,
-      icon: entry.data.icon || '🤔'
-    }))
-  },
-  {
-    title: 'Catholic Doctrine',
-    items: grouped.doctrine.map((entry: CollectionEntry<'evidence'>) => ({
-      title: entry.data.title,
-      description: entry.data.description,
-      href: baseUrl + '/evidence/' + entry.slug,
-      icon: entry.data.icon || '✝️'
-    }))
-  }
+const allArticles = [
+  ...grouped.scientific,
+  ...grouped.historical,
+  ...grouped.biblical,
+  ...grouped.philosophy,
+  ...grouped.doctrine,
 ];
 ---
 
 <BaseLayout title="Evidence" currentPath="/evidence">
-  <section class={styles.page}>
-    <div class={styles.pageInner}>
-      <div class={styles.header}>
-        <h1>Evidence for the Faith</h1>
-        <p>
-          Explore multiple independent lines of evidence that together build a cumulative case 
-          for Catholic Christianity.
-        </p>
-      </div>
-      
-      {evidenceCategories.map((category) => (
-        <div class={styles.category}>
-          <h2 class={styles.categoryTitle}>{category.title}</h2>
-          <div class={styles.grid}>
-            {category.items.map((item) => (
-              <Card href={item.href} icon={item.icon}>
-                <span slot="title">{item.title}</span>
-                {item.description}
-              </Card>
-            ))}
-          </div>
+  <div class={categoryStyles.layout}>
+    <aside class={categoryStyles.sidebar}>
+      <nav class={categoryStyles.sideNav}>
+        <h3 class={categoryStyles.sideNavTitle}>Categories</h3>
+        <ul class={categoryStyles.sideNavList}>
+          {allCategories.map((cat) => (
+            <li>
+              <a 
+                href={`${baseUrl}/evidence/${cat}`} 
+                class:list={[
+                  categoryStyles.sideNavLink,
+                ]}
+              >
+                {categoryLabels[cat]}
+              </a>
+            </li>
+          ))}
+        </ul>
+        
+        <h3 class={categoryStyles.sideNavTitle}>All Articles</h3>
+        <ul class={categoryStyles.articleList}>
+          {allArticles.map((entry) => (
+            <li>
+              <a 
+                href={`${baseUrl}/evidence/${entry.slug}`} 
+                class={categoryStyles.articleLink}
+              >
+                {entry.data.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </aside>
+    
+    <main class={categoryStyles.main}>
+      <div class={styles.pageInner}>
+        <div class={styles.header}>
+          <h1>Evidence for the Faith</h1>
+          <p>
+            Explore multiple independent lines of evidence that together build a cumulative case 
+            for Catholic Christianity.
+          </p>
         </div>
-      ))}
-    </div>
-  </section>
+        
+        {Object.entries(grouped).map(([category, items]) => (
+          items.length > 0 && (
+            <div class={styles.category}>
+              <h2 class={styles.categoryTitle}>{categoryLabels[category]}</h2>
+              <div class={styles.grid}>
+                {items.map((entry: CollectionEntry<'evidence'>) => (
+                  <Card href={`${baseUrl}/evidence/${entry.slug}`} icon={entry.data.icon}>
+                    <span slot="title">{entry.data.title}</span>
+                    {entry.data.description}
+                  </Card>
+                ))}
+              </div>
+            </div>
+          )
+        ))}
+      </div>
+    </main>
+  </div>
 </BaseLayout>

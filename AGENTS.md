@@ -130,3 +130,12 @@ For project-specific commands and test patterns, see:
 - **Context7**: Official documentation, API references, and framework capabilities
 - **Validation**: Verify technology choices against current best practices
 
+# Project-Specific Rules
+
+## URL and Link Requirements
+
+- **ALWAYS use the `baseUrl` constant** (`const baseUrl = '/the-open-apologetic';`) when creating any navigation links in `.astro` files
+- All internal links must use the full path with `baseUrl` prefix (e.g., `${baseUrl}/evidence/scientific`)
+- This applies to: `href`, `Card` component props, navigation links, and any other internal routing
+- The baseUrl is defined in: `src/pages/evidence/[category]/index.astro`, `src/pages/evidence/index.astro`, `src/pages/index.astro`, `src/layouts/BaseLayout/index.astro`, `src/components/layout/Header/index.astro`, and `src/components/layout/Footer/index.astro`
+

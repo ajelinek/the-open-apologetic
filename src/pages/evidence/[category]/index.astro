@@ -6,6 +6,8 @@ import Card from '../../../components/foundation/Card/index.astro';
 import styles from '../styles.module.css';
 import categoryStyles from './styles.module.css';
 
+const baseUrl = '/the-open-apologetic';
+
 export async function getStaticPaths() {
   const categories = ['scientific', 'historical', 'biblical', 'philosophy', 'doctrine'];
   
@@ -66,7 +68,7 @@ const categoryLabels: Record<string, string> = {
           {allCategories.map((cat) => (
             <li>
               <a 
-                href={`/evidence/${cat}`} 
+                href={`${baseUrl}/evidence/${cat}`} 
                 class:list={[
                   categoryStyles.sideNavLink,
                   cat === category && categoryStyles.active
@@ -83,7 +85,7 @@ const categoryLabels: Record<string, string> = {
           {categoryEvidence.map((entry) => (
             <li>
               <a 
-                href={`/evidence/${entry.slug}`} 
+                href={`${baseUrl}/evidence/${entry.slug}`} 
                 class={categoryStyles.articleLink}
               >
                 {entry.data.title}
@@ -103,7 +105,7 @@ const categoryLabels: Record<string, string> = {
         
         <div class={styles.grid}>
           {categoryEvidence.map((entry: CollectionEntry<'evidence'>) => (
-            <Card href={`/evidence/${entry.slug}`} icon={entry.data.icon}>
+            <Card href={`${baseUrl}/evidence/${entry.slug}`} icon={entry.data.icon}>
               <span slot="title">{entry.data.title}</span>
               {entry.data.description}
             </Card>
