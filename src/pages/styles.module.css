@@ -115,3 +115,16 @@
   margin: 0 auto var(--space-6);
   font-size: var(--text-lg);
 }
+
+.journeyIntro {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--space-8);
+  color: var(--text-secondary);
+}
+
+.calloutContainer {
+  max-width: var(--max-prose-width);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}

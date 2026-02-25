@@ -60,7 +60,7 @@ const evidenceCategories = [
           <h2 class={styles.categoryTitle}>{category.title}</h2>
           <div class={styles.grid}>
             {category.items.map((item) => (
-              <Card href={item.href} variant="evidence" icon={item.icon}>
+              <Card href={item.href} icon={item.icon}>
                 <span slot="title">{item.title}</span>
                 {item.description}
               </Card>

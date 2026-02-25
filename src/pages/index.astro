@@ -3,46 +3,17 @@ import BaseLayout from '../layouts/BaseLayout/index.astro';
 import Card from '../components/foundation/Card/index.astro';
 import Button from '../components/foundation/Button/index.astro';
 import Callout from '../components/foundation/Callout/index.astro';
+import { getCollection } from 'astro:content';
 import styles from './styles.module.css';
 
-const evidenceTopics = [
-  {
-    title: 'Fine-Tuned Universe',
-    description: 'The universe exhibits extraordinary precision in its fundamental constants. Evidence of intelligent design.',
-    href: '/evidence/fine-tuned-universe',
-    icon: '🌌'
-  },
-  {
-    title: 'Big Bang Theory',
-    description: 'Science confirms the universe had a beginning. This aligns with Genesis and points to a Creator.',
-    href: '/evidence/big-bang',
-    icon: '💥'
-  },
-  {
-    title: 'DNA & Design',
-    description: 'The information in DNA points to an intelligent designer. The math is staggering.',
-    href: '/evidence/dna',
-    icon: '🧬'
-  },
-  {
-    title: 'Manuscript Evidence',
-    description: '25,000+ manuscripts prove the New Testament has been faithfully preserved over centuries.',
-    href: '/evidence/manuscript-evidence',
-    icon: '📜'
-  },
-  {
-    title: 'Dead Sea Scrolls',
-    description: 'Ancient scrolls confirm the accuracy of Old Testament transmission over 1,000 years.',
-    href: '/evidence/dead-sea-scrolls',
-    icon: '📖'
-  },
-  {
-    title: 'Prophetic Probability',
-    description: '300+ prophecies about the Messiah, fulfilled in Jesus. The math is impossible by chance.',
-    href: '/evidence/prophetic-probability',
-    icon: '✡️'
-  }
-];
+const allEvidence = await getCollection('evidence');
+const sortedEvidence = allEvidence.sort((a, b) => a.data.order - b.data.order);
+const evidenceTopics = sortedEvidence.slice(0, 6).map(entry => ({
+  title: entry.data.title,
+  description: entry.data.description,
+  href: `/evidence/${entry.slug}`,
+  icon: entry.data.icon
+}));
 
 const journeySteps = [
   {
@@ -90,7 +61,7 @@ const journeySteps = [
       <h2 class={styles.sectionTitle}>Scientific & Historical Evidence</h2>
       <div class={styles.grid}>
         {evidenceTopics.map((topic) => (
-          <Card href={topic.href} variant="evidence" icon={topic.icon}>
+          <Card href={topic.href} icon={topic.icon}>
             <span slot="title">{topic.title}</span>
             {topic.description}
           </Card>
@@ -102,7 +73,7 @@ const journeySteps = [
   <section class={`${styles.section} ${styles.journey}`}>
     <div class={styles.sectionInner}>
       <h2 class={styles.sectionTitle}>The Faith Journey</h2>
-      <p style="text-align: center; max-width: 600px; margin: 0 auto var(--space-8); color: var(--text-secondary);">
+      <p class={styles.journeyIntro}>
         Many Catholics have walked a path from skepticism to faith. Here's a common journey:
       </p>
       <div class={styles.journeySteps}>
@@ -119,7 +90,7 @@ const journeySteps = [
     </div>
   </section>
   
-  <div class="container" style="max-width: var(--max-prose-width); margin: 0 auto; padding: 0 var(--space-4);">
+  <div class={styles.calloutContainer}>
     <Callout type="quote" title="Why Evidence Matters">
       <p>"We are called to always be ready to give an explanation to anyone who asks you for a reason for your hope."</p>
       <span class={styles.attribution}>— 1 Peter 3:15</span>

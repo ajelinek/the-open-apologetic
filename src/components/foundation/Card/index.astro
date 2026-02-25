@@ -3,21 +3,19 @@ import styles from './styles.module.css';
 
 interface Props {
   href?: string;
-  variant?: 'default' | 'evidence';
   icon?: string;
   class?: string;
 }
 
 const {
   href,
-  variant = 'default',
   icon,
   class: className
 } = Astro.props;
 
 const classList = [
   styles.card,
-  variant === 'evidence' && styles.evidence,
+  styles.evidence,
   href && styles.interactive,
   className
 ].filter(Boolean);
