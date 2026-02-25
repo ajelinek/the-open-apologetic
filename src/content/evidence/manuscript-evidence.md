@@ -1,7 +1,7 @@
 ---
 title: "Manuscript Evidence"
 description: "25,000+ manuscripts—100x more than any ancient document. The New Testament is 99.5% pure in transmission."
-category: "historical"
+category: "biblical"
 order: 1
 icon: "📜"
 externalResources:

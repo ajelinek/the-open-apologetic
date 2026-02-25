@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout/index.astro';
+import Button from '../../../components/foundation/Button/index.astro';
+import { siteConfig } from '../../../config/site';
+import styles from '../styles.module.css';
+
+const contributeLink = `${siteConfig.github}/issues/new?title=My Miracle: &body=Share your miracle story here...`;
+---
+
+<BaseLayout title="Miracles" currentPath="/stories/miracles">
+  <section class={styles.page}>
+    <div class={styles.pageInner}>
+      <div class={styles.header}>
+        <h1>Miracle Stories</h1>
+        <p>
+          Supernatural occurrences, answered prayers, and encounters with the divine. 
+          Read about the miraculous ways God is working in people's lives.
+        </p>
+      </div>
+      
+      <div class={styles.comingSoon}>
+        <div class={styles.comingSoonIcon}>✨</div>
+        <h2>Coming Soon</h2>
+        <p>
+          We're gathering miracle stories from across the Catholic community—large and small, 
+          every miracle testifies to God's love and power.
+        </p>
+        <p>
+          Have you witnessed or experienced a miracle? We'd love to hear about it.
+        </p>
+        
+        <div class={styles.contributeBox}>
+          <h3>How to Contribute</h3>
+          <p>
+            To share a miracle story, please create a GitHub issue. 
+            Our team will review your submission and may feature it on this page.
+          </p>
+          <Button href={contributeLink} variant="gold" target="_blank" rel="noopener noreferrer">
+            Share Your Miracle →
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

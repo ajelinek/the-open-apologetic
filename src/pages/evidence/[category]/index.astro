@@ -1,0 +1,110 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import { filterAndSortByCategory } from '../../../utils/sorting';
+import BaseLayout from '../../../layouts/BaseLayout/index.astro';
+import Card from '../../../components/foundation/Card/index.astro';
+import styles from '../styles.module.css';
+import categoryStyles from './styles.module.css';
+
+export async function getStaticPaths() {
+  const categories = ['scientific', 'historical', 'biblical', 'catholic'];
+  
+  const categoryInfo: Record<string, { title: string; description: string }> = {
+    scientific: {
+      title: 'Scientific Evidence',
+      description: 'Evidence from science that points toward the existence of God and the truth of Catholic Christianity.'
+    },
+    historical: {
+      title: 'Historical Evidence',
+      description: 'Historical facts and archaeological discoveries that support the credibility of the Bible and Christianity.'
+    },
+    biblical: {
+      title: 'Biblical Evidence',
+      description: 'Internal biblical evidence including manuscript accuracy, prophecies, and textual analysis.'
+    },
+    catholic: {
+      title: 'Catholic Miracles',
+      description: 'Supernatural occurrences throughout history that attest to the truth of Catholic teachings and the intercession of saints.'
+    }
+  };
+
+  return categories.map((category) => ({
+    params: { category },
+    props: { categoryInfo: categoryInfo[category], category }
+  }));
+}
+
+interface Props {
+  categoryInfo: { title: string; description: string };
+  category: string;
+}
+
+const { categoryInfo, category } = Astro.props;
+const allEvidence = await getCollection('evidence');
+const categoryEvidence = filterAndSortByCategory(allEvidence, category);
+
+const allCategories = ['scientific', 'historical', 'biblical', 'catholic'];
+const categoryLabels: Record<string, string> = {
+  scientific: 'Scientific Evidence',
+  historical: 'Historical Evidence',
+  biblical: 'Biblical Evidence',
+  catholic: 'Catholic Miracles'
+};
+---
+
+<BaseLayout title={categoryInfo.title} currentPath={`/evidence/${category}`}>
+  <div class={categoryStyles.layout}>
+    <aside class={categoryStyles.sidebar}>
+      <nav class={categoryStyles.sideNav}>
+        <h3 class={categoryStyles.sideNavTitle}>Categories</h3>
+        <ul class={categoryStyles.sideNavList}>
+          {allCategories.map((cat) => (
+            <li>
+              <a 
+                href={`/evidence/${cat}`} 
+                class:list={[
+                  categoryStyles.sideNavLink,
+                  cat === category && categoryStyles.active
+                ]}
+              >
+                {categoryLabels[cat]}
+              </a>
+            </li>
+          ))}
+        </ul>
+        
+        <h3 class={categoryStyles.sideNavTitle}>Articles</h3>
+        <ul class={categoryStyles.articleList}>
+          {categoryEvidence.map((entry) => (
+            <li>
+              <a 
+                href={`/evidence/${entry.slug}`} 
+                class={categoryStyles.articleLink}
+              >
+                {entry.data.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </aside>
+    
+    <main class={categoryStyles.main}>
+      <div class={styles.pageInner}>
+        <div class={styles.header}>
+          <h1>{categoryInfo.title}</h1>
+          <p>{categoryInfo.description}</p>
+        </div>
+        
+        <div class={styles.grid}>
+          {categoryEvidence.map((entry: CollectionEntry<'evidence'>) => (
+            <Card href={`/evidence/${entry.slug}`} icon={entry.data.icon}>
+              <span slot="title">{entry.data.title}</span>
+              {entry.data.description}
+            </Card>
+          ))}
+        </div>
+      </div>
+    </main>
+  </div>
+</BaseLayout>

@@ -5,7 +5,7 @@ const evidence = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    category: z.enum(['scientific', 'historical', 'catholic']),
+    category: z.enum(['scientific', 'historical', 'biblical', 'catholic']),
     order: z.number(),
     icon: z.string().optional(),
     externalResources: z.array(

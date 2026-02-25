@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout/index.astro';
+import Button from '../../components/foundation/Button/index.astro';
+import Card from '../../components/foundation/Card/index.astro';
+import { siteConfig } from '../../config/site';
+import styles from './styles.module.css';
+
+const storiesCategories = [
+  {
+    title: 'Testimonies',
+    description: 'Personal stories of faith, conversion, and spiritual growth. Read how others have encountered God in their lives.',
+    href: '/stories/testimonies',
+    icon: '📣'
+  },
+  {
+    title: 'Miracles',
+    description: 'Share and read about supernatural occurrences, answered prayers, and encounters with the divine.',
+    href: '/stories/miracles',
+    icon: '✨'
+  }
+];
+
+const contributeLink = `${siteConfig.github}/issues/new?title=My Story: &body=Share your testimony or miracle story here...`;
+---
+
+<BaseLayout title="Stories" currentPath="/stories">
+  <section class={styles.page}>
+    <div class={styles.pageInner}>
+      <div class={styles.header}>
+        <h1>Stories of Faith</h1>
+        <p>
+          Real stories from real people. Browse testimonies and miracles or share your own experience 
+          of God working in your life.
+        </p>
+      </div>
+      
+      <div class={styles.grid}>
+        {storiesCategories.map((category) => (
+          <Card href={category.href} icon={category.icon}>
+            <span slot="title">{category.title}</span>
+            {category.description}
+          </Card>
+        ))}
+      </div>
+      
+      <div class={styles.contribute}>
+        <h2>Have a Story to Share?</h2>
+        <p>
+          We believe every story of faith matters. If you've experienced God's love in a powerful way 
+          or witnessed something miraculous, we'd love to hear from you.
+        </p>
+        <p class={styles.contributeNote}>
+          To contribute a story, please create a GitHub issue with your testimony or miracle story. 
+          Our team will review it and may feature it on this page.
+        </p>
+        <Button href={contributeLink} variant="gold" target="_blank" rel="noopener noreferrer">
+          Share Your Story →
+        </Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

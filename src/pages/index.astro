@@ -3,18 +3,34 @@ import BaseLayout from '../layouts/BaseLayout/index.astro';
 import Card from '../components/foundation/Card/index.astro';
 import Button from '../components/foundation/Button/index.astro';
 import Callout from '../components/foundation/Callout/index.astro';
-import { getCollection } from 'astro:content';
-import { sortByOrder } from '../utils/sorting';
 import styles from './styles.module.css';
 
-const allEvidence = await getCollection('evidence');
-const sortedEvidence = sortByOrder(allEvidence);
-const evidenceTopics = sortedEvidence.slice(0, 6).map(entry => ({
-  title: entry.data.title,
-  description: entry.data.description,
-  href: `/evidence/${entry.slug}`,
-  icon: entry.data.icon
-}));
+const evidenceTopics = [
+  {
+    title: 'Scientific Evidence',
+    description: 'Explore scientific discoveries that point toward the existence of God and the design of the universe.',
+    href: '/evidence/scientific',
+    icon: '🔬'
+  },
+  {
+    title: 'Historical Evidence',
+    description: 'Discover historical facts and archaeological findings that support the credibility of the Bible.',
+    href: '/evidence/historical',
+    icon: '📜'
+  },
+  {
+    title: 'Biblical Evidence',
+    description: 'Examine manuscript evidence, biblical prophecies, and textual analysis of Scripture.',
+    href: '/evidence/biblical',
+    icon: '📖'
+  },
+  {
+    title: 'Catholic Miracles',
+    description: 'Learn about supernatural occurrences that attest to the truth of Catholic teachings.',
+    href: '/evidence/catholic',
+    icon: '✝️'
+  }
+];
 
 const journeySteps = [
   {

@@ -80,3 +80,61 @@
 .navLink:hover::after {
   width: 100%;
 }
+
+.navLink.active {
+  color: var(--color-burgundy);
+}
+
+.navLink.active::after {
+  width: 100%;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdownArrow {
+  font-size: 0.6em;
+  margin-left: var(--space-1);
+}
+
+.dropdownMenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 160px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-2) 0;
+  z-index: 100;
+}
+
+.dropdown:hover .dropdownMenu,
+.dropdown:focus-within .dropdownMenu {
+  display: block;
+}
+
+.dropdownLink {
+  display: block;
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.dropdownLink:hover {
+  background-color: var(--color-cream);
+  color: var(--color-burgundy);
+}
+
+.dropdownLink.active {
+  color: var(--color-burgundy);
+  font-weight: 600;
+}

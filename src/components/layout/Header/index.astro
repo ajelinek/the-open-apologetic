@@ -9,9 +9,17 @@ interface Props {
 
 const { currentPath = '/' } = Astro.props;
 
+const isStoriesActive = currentPath.startsWith('/stories');
+
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/evidence', label: 'Evidence' },
+  { href: '/stories', label: 'Stories', hasDropdown: true },
+];
+
+const storiesSubNav = [
+  { href: '/stories/testimonies', label: 'Testimonies' },
+  { href: '/stories/miracles', label: 'Miracles' },
 ];
 ---
 
@@ -24,13 +32,45 @@ const navLinks = [
     
     <nav class={styles.nav}>
       {navLinks.map((link) => (
-        <a 
-          href={link.href} 
-          class:list={[styles.navLink, { active: currentPath === link.href }]}
-          aria-current={currentPath === link.href ? 'page' : undefined}
-        >
-          {link.label}
-        </a>
+        link.hasDropdown ? (
+          <div class={styles.dropdown}>
+            <a 
+              href={link.href} 
+              class:list={[
+                styles.navLink, 
+                { 
+                  active: currentPath === link.href || isStoriesActive 
+                }
+              ]}
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              {link.label}
+              <span class={styles.dropdownArrow}>▼</span>
+            </a>
+            <div class={styles.dropdownMenu}>
+              {storiesSubNav.map((subLink) => (
+                <a 
+                  href={subLink.href} 
+                  class:list={[
+                    styles.dropdownLink,
+                    { active: currentPath === subLink.href }
+                  ]}
+                >
+                  {subLink.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <a 
+            href={link.href} 
+            class:list={[styles.navLink, { active: currentPath === link.href }]}
+            aria-current={currentPath === link.href ? 'page' : undefined}
+          >
+            {link.label}
+          </a>
+        )
       ))}
       <a 
         href={siteConfig.github} 
