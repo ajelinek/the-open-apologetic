@@ -1,5 +1,6 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { sortByOrder, filterAndSortByCategory } from '../../utils/sorting';
 import BaseLayout from '../../layouts/BaseLayout/index.astro';
 import Card from '../../components/foundation/Card/index.astro';
 import styles from './styles.module.css';
@@ -8,9 +9,9 @@ const allEvidence = await getCollection('evidence');
 
 // Group evidence by category
 const grouped: Record<string, CollectionEntry<'evidence'>[]> = {
-  scientific: allEvidence.filter(e => e.data.category === 'scientific').sort((a, b) => a.data.order - b.data.order),
-  historical: allEvidence.filter(e => e.data.category === 'historical').sort((a, b) => a.data.order - b.data.order),
-  catholic: allEvidence.filter(e => e.data.category === 'catholic').sort((a, b) => a.data.order - b.data.order),
+  scientific: filterAndSortByCategory(allEvidence, 'scientific'),
+  historical: filterAndSortByCategory(allEvidence, 'historical'),
+  catholic: filterAndSortByCategory(allEvidence, 'catholic'),
 };
 
 const evidenceCategories = [
@@ -60,7 +61,7 @@ const evidenceCategories = [
           <h2 class={styles.categoryTitle}>{category.title}</h2>
           <div class={styles.grid}>
             {category.items.map((item) => (
-              <Card href={item.href} variant="evidence" icon={item.icon}>
+              <Card href={item.href} icon={item.icon}>
                 <span slot="title">{item.title}</span>
                 {item.description}
               </Card>

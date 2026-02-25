@@ -9,21 +9,26 @@
   --color-burgundy: #722F37;
   --color-burgundy-light: #8a3f47;
   --color-burgundy-dark: #5a252c;
-  --color-cream: #F5F1E8;
-  --color-cream-light: #faf8f3;
-  --color-cream-dark: #ebe5d8;
+  --color-cream: #F0EDE6;
+  --color-cream-light: #F7F5F1;
+  --color-cream-dark: #E0DCD4;
   --color-gold: #C9A227;
   --color-gold-light: #d4b33d;
   --color-gold-dark: #a8871f;
   
   /* Semantic Colors */
-  --color-text-primary: #2c2c2c;
-  --color-text-secondary: #555555;
-  --color-text-muted: #777777;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #444444;
+  --color-text-muted: #666666;
   --color-text-inverse: #ffffff;
   --color-background: var(--color-cream);
   --color-surface: var(--color-cream-light);
   --color-border: var(--color-cream-dark);
+  
+  /* Alert/Callout Colors */
+  --color-warning-bg: #fef3c7;
+  --color-warning-border: #d97706;
+  --color-warning-text: #92400e;
   
   /* Typography */
   --font-serif: 'Merriweather', Georgia, serif;
