@@ -27,8 +27,8 @@
 }
 
 .icon {
-  width: 48px;
-  height: 48px;
+  width: 3rem;
+  height: 3rem;
   background-color: var(--color-burgundy);
   color: var(--color-gold);
   border-radius: var(--radius-md);

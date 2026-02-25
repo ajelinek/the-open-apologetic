@@ -3,10 +3,9 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { filterAndSortByCategory } from '../../../utils/sorting';
 import BaseLayout from '../../../layouts/BaseLayout/index.astro';
 import Card from '../../../components/foundation/Card/index.astro';
+import { baseUrl, routes } from '../../../config/site';
 import styles from '../styles.module.css';
 import categoryStyles from './styles.module.css';
-
-const baseUrl = '/the-open-apologetic';
 
 export async function getStaticPaths() {
   const categories = ['scientific', 'historical', 'biblical', 'philosophy', 'doctrine'];

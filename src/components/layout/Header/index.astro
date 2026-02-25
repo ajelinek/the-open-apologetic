@@ -1,27 +1,16 @@
 ---
 import styles from './styles.module.css';
 import Icon from '../../foundation/Icon/index.astro';
-import { siteConfig } from '../../../config/site';
+import { baseUrl, routes, siteConfig } from '../../../config/site';
+import { navLinks, storiesSubNav } from '../../../config/navData';
 
 interface Props {
   currentPath?: string;
 }
 
 const { currentPath = '/' } = Astro.props;
-const baseUrl = '/the-open-apologetic';
 
 const isStoriesActive = currentPath.startsWith('/stories');
-
-const navLinks = [
-  { href: baseUrl + '/', label: 'Home' },
-  { href: baseUrl + '/evidence', label: 'Evidence' },
-  { href: baseUrl + '/stories', label: 'Stories', hasDropdown: true },
-];
-
-const storiesSubNav = [
-  { href: baseUrl + '/stories/testimonies', label: 'Testimonies' },
-  { href: baseUrl + '/stories/miracles', label: 'Miracles' },
-];
 
 const isActive = (href: string) => {
   const path = href.replace(baseUrl, '');

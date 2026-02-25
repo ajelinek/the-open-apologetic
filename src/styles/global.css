@@ -57,14 +57,14 @@
   --space-16: 4rem;
   
   /* Layout */
-  --max-prose-width: 720px;
-  --max-width: 1200px;
-  --header-height: 72px;
+  --max-prose-width: 45rem;
+  --max-width: 75rem;
+  --header-height: 4.5rem;
   
   /* Borders */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
   
   /* Shadows */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -84,7 +84,7 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 100%;
   scroll-behavior: smooth;
 }
 
@@ -129,7 +129,7 @@ p {
 a {
   color: var(--color-burgundy);
   text-decoration: underline;
-  text-underline-offset: 2px;
+  text-underline-offset: 0.125rem;
   transition: color var(--transition-fast);
 }
 
@@ -202,7 +202,7 @@ code {
 /* Focus States */
 :focus-visible {
   outline: 2px solid var(--color-gold);
-  outline-offset: 2px;
+  outline-offset: 0.125rem;
 }
 
 /* Skip Link */

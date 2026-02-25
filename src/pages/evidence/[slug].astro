@@ -2,9 +2,8 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout/index.astro';
 import Callout from '../../components/foundation/Callout/index.astro';
+import { routes } from '../../config/site';
 import styles from '../evidence/styles.module.css';
-
-const baseUrl = '/the-open-apologetic';
 
 export async function getStaticPaths() {
   const evidenceEntries = await getCollection('evidence');
@@ -27,7 +26,7 @@ const pageTitle = entry.data.title;
 <BaseLayout title={pageTitle} currentPath="/evidence">
   <article class={styles.page}>
     <div class={styles.pageInner}>
-      <a href={baseUrl + '/evidence'} class={styles.backLink}>← Back to Evidence</a>
+      <a href={routes.evidence()} class={styles.backLink}>← Back to Evidence</a>
       
       <header class={styles.header}>
         <h1>{entry.data.title}</h1>

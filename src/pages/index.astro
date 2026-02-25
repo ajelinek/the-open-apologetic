@@ -1,102 +1,104 @@
 ---
-import BaseLayout from '../layouts/BaseLayout/index.astro';
-import Card from '../components/foundation/Card/index.astro';
-import Button from '../components/foundation/Button/index.astro';
-import Callout from '../components/foundation/Callout/index.astro';
-import { getCollection } from 'astro:content';
-import { sortByOrder } from '../utils/sorting';
-import styles from './styles.module.css';
-
-const baseUrl = '/the-open-apologetic';
+import BaseLayout from '../layouts/BaseLayout/index.astro'
+import Card from '../components/foundation/Card/index.astro'
+import Button from '../components/foundation/Button/index.astro'
+import Callout from '../components/foundation/Callout/index.astro'
+import { getCollection } from 'astro:content'
+import { sortByOrder } from '../utils/sorting'
+import { baseUrl, routes } from '../config/site'
+import styles from './styles.module.css'
 
 const evidenceTopics = [
   {
     title: 'Scientific Evidence',
-    description: 'Explore scientific discoveries that point toward the existence of God and the design of the universe.',
-    href: baseUrl + '/evidence/scientific',
-    icon: '🔬'
+    description:
+      'Explore scientific discoveries that point toward the existence of God and the design of the universe.',
+    href: routes.evidenceCategory('scientific'),
+    icon: '🔬',
   },
   {
     title: 'Historical Evidence',
     description: 'Discover historical facts and archaeological findings that support the credibility of the Bible.',
-    href: baseUrl + '/evidence/historical',
-    icon: '📜'
+    href: routes.evidenceCategory('historical'),
+    icon: '📜',
   },
   {
     title: 'Biblical Evidence',
     description: 'Examine manuscript evidence, biblical prophecies, and textual analysis of Scripture.',
-    href: baseUrl + '/evidence/biblical',
-    icon: '📖'
+    href: routes.evidenceCategory('biblical'),
+    icon: '📖',
   },
   {
     title: 'Philosophy & Apologetics',
     description: 'Philosophical arguments for God and responses to common objections against faith.',
-    href: baseUrl + '/evidence/philosophy',
-    icon: '🤔'
+    href: routes.evidenceCategory('philosophy'),
+    icon: '🤔',
   },
   {
     title: 'Catholic Doctrine',
     description: 'Learn about Catholic teachings and supernatural occurrences that attest to their truth.',
-    href: baseUrl + '/evidence/doctrine',
-    icon: '✝️'
-  }
-];
+    href: routes.evidenceCategory('doctrine'),
+    icon: '✝️',
+  },
+]
 
 const journeySteps = [
   {
     title: 'Atheism',
-    description: 'The starting point for many. "There is no God" requires more faith than belief.'
+    description: 'The starting point for many. "There is no God" requires more faith than belief.',
   },
   {
     title: 'Agnosticism',
-    description: 'Recognizing uncertainty. The doorway to inquiry begins to open.'
+    description: 'Recognizing uncertainty. The doorway to inquiry begins to open.',
   },
   {
     title: 'Seeking',
-    description: 'Curiosity emerges. Beginning to question previous assumptions about faith.'
+    description: 'Curiosity emerges. Beginning to question previous assumptions about faith.',
   },
   {
     title: 'Investigation',
-    description: 'Actively exploring evidence, history, and the claims of Christianity.'
+    description: 'Actively exploring evidence, history, and the claims of Christianity.',
   },
   {
     title: 'Faith',
-    description: 'Coming to believe. Trust in God through Christ and His Church.'
+    description: 'Coming to believe. Trust in God through Christ and His Church.',
   },
   {
     title: 'The Church',
-    description: 'Finding community, truth, and the sacraments. The journey continues in fellowship.'
-  }
-];
+    description: 'Finding community, truth, and the sacraments. The journey continues in fellowship.',
+  },
+]
 ---
 
-<BaseLayout title="Home" currentPath="/">
+<BaseLayout title='Home' currentPath='/'>
   <section class={styles.hero}>
     <div class={styles.heroInner}>
       <h1>The Open Apologetic</h1>
       <p class={styles.subheader}>"It takes more faith not to believe than it does to believe"</p>
       <p class={styles.intro}>
-        Building a cumulative case for Catholic Christianity through scientific, historical, and spiritual evidence. 
-        Not to "prove" God in a mathematical sense, but to show that multiple independent lines of evidence 
-        point strongly toward the truth of our faith.
+        Building a cumulative case for Catholic Christianity through scientific, historical, and spiritual evidence. Not
+        to "prove" God in a mathematical sense, but to show that multiple independent lines of evidence point strongly
+        toward the truth.
       </p>
     </div>
   </section>
-  
+
   <section class={styles.section}>
     <div class={styles.sectionInner}>
       <h2 class={styles.sectionTitle}>Explore the Evidence</h2>
       <div class={styles.grid}>
-        {evidenceTopics.map((topic) => (
-          <Card href={topic.href} icon={topic.icon}>
-            <span slot="title">{topic.title}</span>
-            {topic.description}
-          </Card>
-        ))}
+        {
+          evidenceTopics.map(topic => (
+            <Card href={topic.href} icon={topic.icon}>
+              <span slot='title'>{topic.title}</span>
+              {topic.description}
+            </Card>
+          ))
+        }
       </div>
     </div>
   </section>
-  
+
   <section class={`${styles.section} ${styles.journey}`}>
     <div class={styles.sectionInner}>
       <h2 class={styles.sectionTitle}>The Faith Journey</h2>
@@ -104,36 +106,38 @@ const journeySteps = [
         Many Catholics have walked a path from skepticism to faith. Here's a common journey:
       </p>
       <div class={styles.journeySteps}>
-        {journeySteps.map((step, index) => (
-          <div class={styles.journeyStep}>
-            <div class={styles.stepNumber}>{index + 1}</div>
-            <div class={styles.stepContent}>
-              <h3>{step.title}</h3>
-              <p>{step.description}</p>
+        {
+          journeySteps.map((step, index) => (
+            <div class={styles.journeyStep}>
+              <div class={styles.stepNumber}>{index + 1}</div>
+              <div class={styles.stepContent}>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </section>
-  
+
   <div class={styles.calloutContainer}>
-    <Callout type="quote" title="Why Evidence Matters">
-      <p>"We are called to always be ready to give an explanation to anyone who asks you for a reason for your hope."</p>
+    <Callout type='quote' title='Why Evidence Matters'>
+      <p>
+        "We are called to always be ready to give an explanation to anyone who asks you for a reason for your hope."
+      </p>
       <span class={styles.attribution}>— 1 Peter 3:15</span>
     </Callout>
   </div>
-  
+
   <section class={styles.cta}>
     <div class={styles.sectionInner}>
       <h2>Begin Your Exploration</h2>
       <p>
-        Dive into the evidence. Each topic builds on others to create a cumulative case 
-        for the truth of Catholic Christianity.
+        Dive into the evidence. Each topic builds on others to create a cumulative case for the truth of Catholic
+        Christianity.
       </p>
-      <Button href={baseUrl + '/evidence'} variant="gold" size="large">
-        View All Evidence →
-      </Button>
+      <Button href={routes.evidence()} variant='gold' size='large'> View All Evidence → </Button>
     </div>
   </section>
 </BaseLayout>

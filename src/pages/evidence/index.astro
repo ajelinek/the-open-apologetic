@@ -3,10 +3,9 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { sortByOrder, filterAndSortByCategory } from '../../utils/sorting';
 import BaseLayout from '../../layouts/BaseLayout/index.astro';
 import Card from '../../components/foundation/Card/index.astro';
+import { baseUrl, routes } from '../../config/site';
 import styles from './styles.module.css';
 import categoryStyles from './category.module.css';
-
-const baseUrl = '/the-open-apologetic';
 
 const allEvidence = await getCollection('evidence');
 
