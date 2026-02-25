@@ -8,16 +8,23 @@ interface Props {
 }
 
 const { currentPath = '/' } = Astro.props;
+const baseUrl = '/the-open-apologetic';
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/evidence', label: 'Evidence' },
+  { href: baseUrl + '/', label: 'Home' },
+  { href: baseUrl + '/evidence', label: 'Evidence' },
 ];
+
+const isActive = (href: string) => {
+  const path = href.replace(baseUrl, '');
+  if (path === '/') return currentPath === '/';
+  return currentPath.startsWith(path);
+};
 ---
 
 <header class={styles.header}>
   <div class={styles.headerInner}>
-    <a href="/" class={styles.logo}>
+    <a href={baseUrl + '/'} class={styles.logo}>
       <span class={styles.logoIcon}>✝</span>
       <span>The Open Apologetic</span>
     </a>
@@ -26,8 +33,8 @@ const navLinks = [
       {navLinks.map((link) => (
         <a 
           href={link.href} 
-          class:list={[styles.navLink, { active: currentPath === link.href }]}
-          aria-current={currentPath === link.href ? 'page' : undefined}
+          class:list={[styles.navLink, { active: isActive(link.href) }]}
+          aria-current={isActive(link.href) ? 'page' : undefined}
         >
           {link.label}
         </a>

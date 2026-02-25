@@ -2,6 +2,8 @@
 import styles from './styles.module.css';
 import Icon from '../../foundation/Icon/index.astro';
 import { siteConfig } from '../../../config/site';
+
+const baseUrl = '/the-open-apologetic';
 ---
 
 <footer class={styles.footer}>
@@ -21,10 +23,10 @@ import { siteConfig } from '../../../config/site';
       <div class={styles.footerSection}>
         <h3>Quick Links</h3>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/evidence">All Evidence</a></li>
-          <li><a href="/evidence/fine-tuned-universe">Fine-Tuned Universe</a></li>
-          <li><a href="/evidence/manuscript-evidence">Manuscript Evidence</a></li>
+          <li><a href={baseUrl + '/'}>Home</a></li>
+          <li><a href={baseUrl + '/evidence'}>All Evidence</a></li>
+          <li><a href={baseUrl + '/evidence/fine-tuned-universe'}>Fine-Tuned Universe</a></li>
+          <li><a href={baseUrl + '/evidence/manuscript-evidence'}>Manuscript Evidence</a></li>
         </ul>
       </div>
       

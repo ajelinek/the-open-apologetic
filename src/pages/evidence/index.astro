@@ -5,6 +5,8 @@ import BaseLayout from '../../layouts/BaseLayout/index.astro';
 import Card from '../../components/foundation/Card/index.astro';
 import styles from './styles.module.css';
 
+const baseUrl = '/the-open-apologetic';
+
 const allEvidence = await getCollection('evidence');
 
 // Group evidence by category
@@ -20,7 +22,7 @@ const evidenceCategories = [
     items: grouped.scientific.map((entry: CollectionEntry<'evidence'>) => ({
       title: entry.data.title,
       description: entry.data.description,
-      href: `/evidence/${entry.slug}`,
+      href: baseUrl + '/evidence/' + entry.slug,
       icon: entry.data.icon || '🔬'
     }))
   },
@@ -29,7 +31,7 @@ const evidenceCategories = [
     items: grouped.historical.map((entry: CollectionEntry<'evidence'>) => ({
       title: entry.data.title,
       description: entry.data.description,
-      href: `/evidence/${entry.slug}`,
+      href: baseUrl + '/evidence/' + entry.slug,
       icon: entry.data.icon || '📚'
     }))
   },
@@ -38,7 +40,7 @@ const evidenceCategories = [
     items: grouped.catholic.map((entry: CollectionEntry<'evidence'>) => ({
       title: entry.data.title,
       description: entry.data.description,
-      href: `/evidence/${entry.slug}`,
+      href: baseUrl + '/evidence/' + entry.slug,
       icon: entry.data.icon || '✝️'
     }))
   }
