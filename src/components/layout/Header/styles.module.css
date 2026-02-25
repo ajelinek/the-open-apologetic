@@ -80,22 +80,3 @@
 .navLink:hover::after {
   width: 100%;
 }
-
-.mobileMenuButton {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: var(--space-2);
-  color: var(--color-burgundy);
-}
-
-@media (max-width: 768px) {
-  .nav {
-    display: none;
-  }
-  
-  .mobileMenuButton {
-    display: block;
-  }
-}

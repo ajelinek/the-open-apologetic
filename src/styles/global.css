@@ -25,6 +25,11 @@
   --color-surface: var(--color-cream-light);
   --color-border: var(--color-cream-dark);
   
+  /* Alert/Callout Colors */
+  --color-warning-bg: #fef3c7;
+  --color-warning-border: #d97706;
+  --color-warning-text: #92400e;
+  
   /* Typography */
   --font-serif: 'Merriweather', Georgia, serif;
   --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;

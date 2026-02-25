@@ -24,12 +24,12 @@
 }
 
 .warning {
-  background-color: #fef3c7;
-  border-color: #d97706;
+  background-color: var(--color-warning-bg);
+  border-color: var(--color-warning-border);
 }
 
 .warning .calloutTitle {
-  color: #92400e;
+  color: var(--color-warning-text);
 }
 
 .calloutTitle {
