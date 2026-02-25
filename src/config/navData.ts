@@ -14,7 +14,7 @@ export interface NavSubItem {
 export const navLinks: NavItem[] = [
   { href: routes.home(), label: 'Home' },
   { href: routes.evidence(), label: 'Evidence' },
-  { href: routes.stories(), label: 'Stories', hasDropdown: true },
+  { href: routes.stories(), label: 'Stories' },
 ];
 
 export const storiesSubNav: NavSubItem[] = [

@@ -1,45 +1,98 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout/index.astro';
+import CategoryLayout from '../../../components/layout/CategoryLayout/index.astro';
 import Button from '../../../components/foundation/Button/index.astro';
-import { siteConfig } from '../../../config/site';
-import styles from '../styles.module.css';
+import { baseUrl, routes, siteConfig } from '../../../config/site';
+
+const storiesCategories = [
+  { id: 'testimonies', label: 'Testimonies' },
+  { id: 'miracles', label: 'Miracles' }
+];
+
+const categoryInfo = {
+  title: 'Testimonies',
+  description: 'Personal stories of faith, conversion, and spiritual growth. Read how others have encountered God in their lives.'
+};
 
 const contributeLink = `${siteConfig.github}/issues/new?title=My Testimony: &body=Share your testimony story here...`;
 ---
 
 <BaseLayout title="Testimonies" currentPath="/stories/testimonies">
-  <section class={styles.page}>
-    <div class={styles.pageInner}>
-      <div class={styles.header}>
-        <h1>Testimonies</h1>
-        <p>
-          Personal stories of faith, conversion, and spiritual growth. Read how others have 
-          encountered God in their lives.
-        </p>
-      </div>
+  <CategoryLayout 
+    categories={storiesCategories}
+    activeCategory="testimonies"
+    currentPath="/stories/testimonies"
+    title={categoryInfo.title}
+    description={categoryInfo.description}
+    baseUrl={baseUrl}
+    section="stories"
+  >
+    <div class="coming-soon">
+      <div class="coming-soon-icon">📣</div>
+      <h2>Coming Soon</h2>
+      <p>
+        We're building a collection of powerful testimonies from people who have experienced 
+        God's love and grace in their lives.
+      </p>
+      <p>
+        Have a testimony to share? We want to hear your story!
+      </p>
       
-      <div class={styles.comingSoon}>
-        <div class={styles.comingSoonIcon}>📣</div>
-        <h2>Coming Soon</h2>
+      <div class="contribute-box">
+        <h3>How to Contribute</h3>
         <p>
-          We're building a collection of powerful testimonies from people who have experienced 
-          God's love and grace in their lives.
+          To add your testimony to this collection, please create a GitHub issue. 
+          Our team will review your submission and may feature it on this page.
         </p>
-        <p>
-          Have a testimony to share? We want to hear your story!
-        </p>
-        
-        <div class={styles.contributeBox}>
-          <h3>How to Contribute</h3>
-          <p>
-            To add your testimony to this collection, please create a GitHub issue. 
-            Our team will review your submission and may feature it on this page.
-          </p>
-          <Button href={contributeLink} variant="gold" target="_blank" rel="noopener noreferrer">
-            Share Your Testimony →
-          </Button>
-        </div>
+        <Button href={contributeLink} variant="gold" target="_blank" rel="noopener noreferrer">
+          Share Your Testimony →
+        </Button>
       </div>
     </div>
-  </section>
+  </CategoryLayout>
 </BaseLayout>
+
+<style>
+  .coming-soon {
+    text-align: center;
+    padding: var(--space-12) var(--space-6);
+    background-color: var(--color-cream);
+    border-radius: var(--radius-lg);
+  }
+
+  .coming-soon-icon {
+    font-size: 4rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .coming-soon h2 {
+    margin-bottom: var(--space-4);
+    color: var(--color-burgundy);
+  }
+
+  .coming-soon p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-4);
+    max-width: 31.25rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contribute-box {
+    margin-top: var(--space-8);
+    padding: var(--space-6);
+    background-color: var(--color-white);
+    border-radius: var(--radius-md);
+    border: 2px solid var(--color-gold);
+  }
+
+  .contribute-box h3 {
+    margin-bottom: var(--space-3);
+    color: var(--color-burgundy);
+  }
+
+  .contribute-box p {
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-4);
+  }
+</style>

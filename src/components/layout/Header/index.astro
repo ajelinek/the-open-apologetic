@@ -2,15 +2,13 @@
 import styles from './styles.module.css';
 import Icon from '../../foundation/Icon/index.astro';
 import { baseUrl, routes, siteConfig } from '../../../config/site';
-import { navLinks, storiesSubNav } from '../../../config/navData';
+import { navLinks } from '../../../config/navData';
 
 interface Props {
   currentPath?: string;
 }
 
 const { currentPath = '/' } = Astro.props;
-
-const isStoriesActive = currentPath.startsWith('/stories');
 
 const isActive = (href: string) => {
   const path = href.replace(baseUrl, '');
@@ -28,45 +26,13 @@ const isActive = (href: string) => {
     
     <nav class={styles.nav}>
       {navLinks.map((link) => (
-        link.hasDropdown ? (
-          <div class={styles.dropdown}>
-            <a 
-              href={link.href} 
-              class:list={[
-                styles.navLink, 
-                { 
-                  active: currentPath === link.href || isStoriesActive 
-                }
-              ]}
-              aria-expanded="false"
-              aria-haspopup="true"
-            >
-              {link.label}
-              <span class={styles.dropdownArrow}>▼</span>
-            </a>
-            <div class={styles.dropdownMenu}>
-              {storiesSubNav.map((subLink) => (
-                <a 
-                  href={subLink.href} 
-                  class:list={[
-                    styles.dropdownLink,
-                    { active: currentPath === subLink.href }
-                  ]}
-                >
-                  {subLink.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        ) : (
-          <a 
-            href={link.href} 
-            class:list={[styles.navLink, { active: isActive(link.href) }]}
-            aria-current={isActive(link.href) ? 'page' : undefined}
-          >
-            {link.label}
-          </a>
-        )
+        <a 
+          href={link.href} 
+          class:list={[styles.navLink, { active: isActive(link.href) }]}
+          aria-current={isActive(link.href) ? 'page' : undefined}
+        >
+          {link.label}
+        </a>
       ))}
       <a 
         href={siteConfig.github} 

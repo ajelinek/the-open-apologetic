@@ -2,10 +2,9 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { filterAndSortByCategory } from '../../../utils/sorting';
 import BaseLayout from '../../../layouts/BaseLayout/index.astro';
+import CategoryLayout from '../../../components/layout/CategoryLayout/index.astro';
 import Card from '../../../components/foundation/Card/index.astro';
 import { baseUrl, routes } from '../../../config/site';
-import styles from '../styles.module.css';
-import categoryStyles from './styles.module.css';
 
 export async function getStaticPaths() {
   const categories = ['scientific', 'historical', 'biblical', 'philosophy', 'doctrine'];
@@ -48,69 +47,40 @@ const { categoryInfo, category } = Astro.props;
 const allEvidence = await getCollection('evidence');
 const categoryEvidence = filterAndSortByCategory(allEvidence, category);
 
-const allCategories = ['scientific', 'historical', 'biblical', 'philosophy', 'doctrine'];
-const categoryLabels: Record<string, string> = {
-  scientific: 'Scientific Evidence',
-  historical: 'Historical Evidence',
-  biblical: 'Biblical Evidence',
-  philosophy: 'Philosophy & Apologetics',
-  doctrine: 'Catholic Doctrine'
-};
+const evidenceCategories = [
+  { id: 'scientific', label: 'Scientific Evidence' },
+  { id: 'historical', label: 'Historical Evidence' },
+  { id: 'biblical', label: 'Biblical Evidence' },
+  { id: 'philosophy', label: 'Philosophy & Apologetics' },
+  { id: 'doctrine', label: 'Catholic Doctrine' }
+];
 ---
 
 <BaseLayout title={categoryInfo.title} currentPath={`/evidence/${category}`}>
-  <div class={categoryStyles.layout}>
-    <aside class={categoryStyles.sidebar}>
-      <nav class={categoryStyles.sideNav}>
-        <h3 class={categoryStyles.sideNavTitle}>Categories</h3>
-        <ul class={categoryStyles.sideNavList}>
-          {allCategories.map((cat) => (
-            <li>
-              <a 
-                href={`${baseUrl}/evidence/${cat}`} 
-                class:list={[
-                  categoryStyles.sideNavLink,
-                  cat === category && categoryStyles.active
-                ]}
-              >
-                {categoryLabels[cat]}
-              </a>
-            </li>
-          ))}
-        </ul>
-        
-        <h3 class={categoryStyles.sideNavTitle}>Articles</h3>
-        <ul class={categoryStyles.articleList}>
-          {categoryEvidence.map((entry) => (
-            <li>
-              <a 
-                href={`${baseUrl}/evidence/${entry.slug}`} 
-                class={categoryStyles.articleLink}
-              >
-                {entry.data.title}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </aside>
-    
-    <main class={categoryStyles.main}>
-      <div class={styles.pageInner}>
-        <div class={styles.header}>
-          <h1>{categoryInfo.title}</h1>
-          <p>{categoryInfo.description}</p>
-        </div>
-        
-        <div class={styles.grid}>
-          {categoryEvidence.map((entry: CollectionEntry<'evidence'>) => (
-            <Card href={`${baseUrl}/evidence/${entry.slug}`} icon={entry.data.icon}>
-              <span slot="title">{entry.data.title}</span>
-              {entry.data.description}
-            </Card>
-          ))}
-        </div>
-      </div>
-    </main>
-  </div>
+  <CategoryLayout 
+    categories={evidenceCategories}
+    activeCategory={category}
+    currentPath={`/evidence/${category}`}
+    title={categoryInfo.title}
+    description={categoryInfo.description}
+    baseUrl={baseUrl}
+    section="evidence"
+  >
+    <div class="articles-list">
+      {categoryEvidence.map((entry: CollectionEntry<'evidence'>) => (
+        <Card href={`${baseUrl}/evidence/${entry.slug}`} icon={entry.data.icon}>
+          <span slot="title">{entry.data.title}</span>
+          {entry.data.description}
+        </Card>
+      ))}
+    </div>
+  </CategoryLayout>
 </BaseLayout>
+
+<style>
+  .articles-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-6);
+  }
+</style>

@@ -1,0 +1,58 @@
+---
+import styles from './styles.module.css';
+
+interface Category {
+  id: string;
+  label: string;
+}
+
+interface Props {
+  categories: Category[];
+  activeCategory: string;
+  currentPath: string;
+  title: string;
+  description: string;
+  baseUrl: string;
+  section: 'evidence' | 'stories';
+}
+
+const { categories, activeCategory, currentPath, title, description, baseUrl, section } = Astro.props;
+
+const getHref = (catId: string) => `${baseUrl}/${section}/${catId}`;
+---
+
+<div class={styles.layout}>
+  <aside class={styles.sidebar}>
+    <nav class={styles.sideNav}>
+      <h3 class={styles.sideNavTitle}>Categories</h3>
+      <ul class={styles.sideNavList}>
+        {categories.map((cat) => (
+          <li>
+            <a 
+              href={getHref(cat.id)} 
+              class:list={[
+                styles.sideNavLink,
+                { [styles.active]: cat.id === activeCategory }
+              ]}
+            >
+              {cat.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      
+      <slot name="sidebar-after" />
+    </nav>
+  </aside>
+  
+  <main class={styles.main}>
+    <div class={styles.pageInner}>
+      <div class={styles.header}>
+        <h1>{title}</h1>
+        <p>{description}</p>
+      </div>
+      
+      <slot />
+    </div>
+  </main>
+</div>
