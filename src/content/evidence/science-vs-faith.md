@@ -1,7 +1,7 @@
 ---
 title: "Science vs. Faith"
 description: "Are science and faith in conflict? Addressing common misconceptions about evolution, the age of the Earth, and the relationship between science and Christianity."
-category: "scientific"
+category: "philosophy"
 order: 22
 icon: "🔬"
 externalResources: []

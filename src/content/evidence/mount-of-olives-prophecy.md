@@ -1,7 +1,7 @@
 ---
 title: "The Mount of Olives Prophecy"
 description: "Zechariah 14:4 prophesied the Mount of Olives would split. In 1964, a geological survey found a fault line running through the mountain."
-category: "historical"
+category: "biblical"
 order: 18
 icon: "⛰️"
 externalResources:

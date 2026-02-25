@@ -1,7 +1,7 @@
 ---
 title: "Apostle Martyrdom"
 description: "The apostles were willing to die for what they saw. 'Men do not die for what they know is a lie.'"
-category: "catholic"
+category: "doctrine"
 order: 3
 icon: "✝️"
 externalResources:

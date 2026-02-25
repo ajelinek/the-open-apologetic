@@ -14,7 +14,8 @@ const grouped: Record<string, CollectionEntry<'evidence'>[]> = {
   scientific: filterAndSortByCategory(allEvidence, 'scientific'),
   historical: filterAndSortByCategory(allEvidence, 'historical'),
   biblical: filterAndSortByCategory(allEvidence, 'biblical'),
-  catholic: filterAndSortByCategory(allEvidence, 'catholic'),
+  philosophy: filterAndSortByCategory(allEvidence, 'philosophy'),
+  doctrine: filterAndSortByCategory(allEvidence, 'doctrine'),
 };
 
 const evidenceCategories = [
@@ -46,8 +47,17 @@ const evidenceCategories = [
     }))
   },
   {
-    title: 'Catholic Miracles',
-    items: grouped.catholic.map((entry: CollectionEntry<'evidence'>) => ({
+    title: 'Philosophy & Apologetics',
+    items: grouped.philosophy.map((entry: CollectionEntry<'evidence'>) => ({
+      title: entry.data.title,
+      description: entry.data.description,
+      href: baseUrl + '/evidence/' + entry.slug,
+      icon: entry.data.icon || '🤔'
+    }))
+  },
+  {
+    title: 'Catholic Doctrine',
+    items: grouped.doctrine.map((entry: CollectionEntry<'evidence'>) => ({
       title: entry.data.title,
       description: entry.data.description,
       href: baseUrl + '/evidence/' + entry.slug,

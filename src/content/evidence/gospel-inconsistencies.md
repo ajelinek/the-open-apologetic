@@ -1,7 +1,7 @@
 ---
 title: "Gospel Inconsistencies"
 description: "The 'inconsistencies' in the Gospels actually prove authenticity. Truth allows variation; fabrication requires consistency."
-category: "historical"
+category: "biblical"
 order: 4
 icon: "📕"
 externalResources:

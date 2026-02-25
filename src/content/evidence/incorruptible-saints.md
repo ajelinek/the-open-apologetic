@@ -1,7 +1,7 @@
 ---
 title: "Incorruptible Saints"
 description: "250+ bodies preserved from decomposition. A 'preview' of the resurrection, confirmed by science."
-category: "catholic"
+category: "doctrine"
 order: 2
 icon: "✨"
 externalResources:

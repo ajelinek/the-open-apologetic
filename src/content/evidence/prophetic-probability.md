@@ -1,7 +1,7 @@
 ---
 title: "Prophetic Probability"
 description: "300+ prophecies about the Messiah, written hundreds of years before Jesus. Probability calculations are staggering."
-category: "historical"
+category: "biblical"
 order: 3
 icon: "✡️"
 externalResources:

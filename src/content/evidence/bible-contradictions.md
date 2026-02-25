@@ -1,7 +1,7 @@
 ---
 title: "Bible Contradictions"
 description: "Addressing apparent contradictions in Scripture. How do we reconcile difficult passages about slavery, violence, and inconsistencies in the Gospels?"
-category: "historical"
+category: "biblical"
 order: 20
 icon: "📖"
 externalResources: []

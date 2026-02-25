@@ -1,7 +1,7 @@
 ---
 title: "Where Did God Come From?"
 description: "The most common question asked by skeptics: 'If God created everything, who created God?' This addresses the philosophical foundations of the argument."
-category: "scientific"
+category: "philosophy"
 order: 15
 icon: "❓"
 externalResources: []

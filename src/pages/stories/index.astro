@@ -5,17 +5,19 @@ import Card from '../../components/foundation/Card/index.astro';
 import { siteConfig } from '../../config/site';
 import styles from './styles.module.css';
 
+const baseUrl = '/the-open-apologetic';
+
 const storiesCategories = [
   {
     title: 'Testimonies',
     description: 'Personal stories of faith, conversion, and spiritual growth. Read how others have encountered God in their lives.',
-    href: '/stories/testimonies',
+    href: baseUrl + '/stories/testimonies',
     icon: '📣'
   },
   {
     title: 'Miracles',
     description: 'Share and read about supernatural occurrences, answered prayers, and encounters with the divine.',
-    href: '/stories/miracles',
+    href: baseUrl + '/stories/miracles',
     icon: '✨'
   }
 ];

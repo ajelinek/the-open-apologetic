@@ -1,7 +1,7 @@
 ---
 title: "Flawed Heroes"
 description: "The Bible shows its heroes with real flaws—unlike any other religious text. This authenticity points to divine inspiration."
-category: "historical"
+category: "biblical"
 order: 5
 icon: "👤"
 externalResources:

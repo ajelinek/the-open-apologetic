@@ -7,12 +7,12 @@ import styles from '../styles.module.css';
 import categoryStyles from './styles.module.css';
 
 export async function getStaticPaths() {
-  const categories = ['scientific', 'historical', 'biblical', 'catholic'];
+  const categories = ['scientific', 'historical', 'biblical', 'philosophy', 'doctrine'];
   
   const categoryInfo: Record<string, { title: string; description: string }> = {
     scientific: {
       title: 'Scientific Evidence',
-      description: 'Evidence from science that points toward the existence of God and the truth of Catholic Christianity.'
+      description: 'Evidence from science that points toward the existence of God and the design of the universe.'
     },
     historical: {
       title: 'Historical Evidence',
@@ -22,9 +22,13 @@ export async function getStaticPaths() {
       title: 'Biblical Evidence',
       description: 'Internal biblical evidence including manuscript accuracy, prophecies, and textual analysis.'
     },
-    catholic: {
-      title: 'Catholic Miracles',
-      description: 'Supernatural occurrences throughout history that attest to the truth of Catholic teachings and the intercession of saints.'
+    philosophy: {
+      title: 'Philosophy & Apologetics',
+      description: 'Philosophical arguments for God\'s existence and responses to common objections against faith.'
+    },
+    doctrine: {
+      title: 'Catholic Doctrine',
+      description: 'Supernatural occurrences and teachings that attest to the truth of Catholic doctrine and the intercession of saints.'
     }
   };
 
@@ -43,12 +47,13 @@ const { categoryInfo, category } = Astro.props;
 const allEvidence = await getCollection('evidence');
 const categoryEvidence = filterAndSortByCategory(allEvidence, category);
 
-const allCategories = ['scientific', 'historical', 'biblical', 'catholic'];
+const allCategories = ['scientific', 'historical', 'biblical', 'philosophy', 'doctrine'];
 const categoryLabels: Record<string, string> = {
   scientific: 'Scientific Evidence',
   historical: 'Historical Evidence',
   biblical: 'Biblical Evidence',
-  catholic: 'Catholic Miracles'
+  philosophy: 'Philosophy & Apologetics',
+  doctrine: 'Catholic Doctrine'
 };
 ---
 

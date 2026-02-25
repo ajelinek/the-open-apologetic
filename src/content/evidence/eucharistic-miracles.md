@@ -1,7 +1,7 @@
 ---
 title: "Eucharistic Miracles"
 description: "Physical phenomena that can be examined and tested. Lanciano, Santarém, Buenos Aires—verified by science."
-category: "catholic"
+category: "doctrine"
 order: 1
 icon: "🍷"
 externalResources:
