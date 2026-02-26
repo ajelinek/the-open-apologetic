@@ -195,7 +195,7 @@ But the Bible? It shows real people with real flaws. And shows how God uses brok
 
 The Catholic Church teaches that at Mass, bread and wine become the Body, Blood, Soul, and Divinity of Jesus Christ. This is called transubstantiation. The substance of the bread and wine is changed into the substance of Christ. The appearances, what we see, touch, taste, remain.
 
-This is a hard teaching. Jesus Himself said it. "Unless you eat the flesh of the Son of Man and drink his blood, you have no life in you" (John 6:53). Many of His disciples walked away. But Jesus did not soften the message. He doubled down.
+This is a hard teaching. Jesus Himself said it. "unless you eat the flesh of the Son of Man and drink his blood, you do not have life within you" (John 6:53). Many of His disciples walked away. But Jesus did not soften the message. He doubled down.
 
 Throughout history, God has chosen to confirm this teaching through visible signs. What we call Eucharistic miracles. These are not just "feelings" or "interpretations." They are physical phenomena that can be examined, tested, and verified.
 

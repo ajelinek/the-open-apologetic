@@ -55,6 +55,11 @@
 - [ ] Run all factual claims by theologian-expert for verification
 - [ ] Revise content based on any feedback
 
+- Word-count enforcement (evidence articles):
+- [ ] Confirm content is an "evidence article" (this triggers the word-count rule).
+- [ ] Run a word-count on the article body and record the total: **\_\_** words.
+- [ ] Verify the word count is within the required range (600–1,400 words). If not, revise and re-count.
+
 ### Phase 3: Quality Assurance
 
 - [ ] Verify all theological claims are accurate

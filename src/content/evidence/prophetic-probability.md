@@ -50,7 +50,7 @@ These aren't obscure predictions that require creative interpretation. They're s
 - **Born of a virgin** (Isaiah 7:14) — the word literally means "young woman"
 - **Betrayed for 30 pieces of silver** (Zechariah 11:12-13) — exact price
 - **Crucified with criminals** (Isaiah 53:12) — died among criminals
-- **Resurrected** (Psalm 16:10) — "you will not abandon me to the realm of the death"
+- **Resurrected** (Psalm 16:10) — "For you will not abandon my soul to Sheol, nor let your devout one see the pit."
 - **Raised on the third day** (Hosea 6:2) — "after two days He will revive us; on the third day He will raise us up" *This interpretation is debated—some scholars see it as national restoration rather than literal resurrection*
 - **Pierced hands and feet** (Psalm 22:16) — *The translation is contested; some render it "like a lion" rather than "pierced"*
 
