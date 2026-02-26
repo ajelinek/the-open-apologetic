@@ -5,27 +5,11 @@ import BaseLayout from '../../layouts/BaseLayout/index.astro';
 import Card from '../../components/foundation/Card/index.astro';
 import CategoryFilter from '../../components/layout/CategoryFilter/index.astro';
 import { baseUrl, routes } from '../../config/site';
+import { EVIDENCE_CATEGORIES, EVIDENCE_DESCRIPTIONS } from '../../config/categories';
 import styles from './styles.module.css';
 import categoryStyles from './category.module.css';
 
 const allEvidence = await getCollection('evidence');
-
-const allCategories = ['scientific', 'historical', 'biblical', 'philosophy', 'doctrine'];
-const categoryLabels: Record<string, string> = {
-  scientific: 'Scientific Evidence',
-  historical: 'Historical Evidence',
-  biblical: 'Biblical Evidence',
-  philosophy: 'Philosophy & Apologetics',
-  doctrine: 'Catholic Doctrine'
-};
-
-const categoryDescriptions: Record<string, string> = {
-  scientific: 'Evidence from science that points toward the existence of God and the design of the universe.',
-  historical: 'Historical facts and archaeological discoveries that support the credibility of the Bible and Christianity.',
-  biblical: 'Internal biblical evidence including manuscript accuracy, prophecies, and textual analysis.',
-  philosophy: 'Philosophical arguments for God\'s existence and responses to common objections against faith.',
-  doctrine: 'Supernatural occurrences and teachings that attest to the truth of Catholic doctrine and the intercession of saints.'
-};
 
 const grouped: Record<string, CollectionEntry<'evidence'>[]> = {
   scientific: filterAndSortByCategory(allEvidence, 'scientific'),
@@ -42,12 +26,16 @@ const allArticles = [
   ...grouped.philosophy,
   ...grouped.doctrine,
 ];
+
+const categoryLabels: Record<string, string> = Object.fromEntries(
+  EVIDENCE_CATEGORIES.map(cat => [cat.id, cat.label])
+);
 ---
 
 <BaseLayout title="Evidence" currentPath="/evidence">
   <div class={categoryStyles.layout}>
     <CategoryFilter 
-      categories={allCategories.map(cat => ({ id: cat, label: categoryLabels[cat] }))}
+      categories={EVIDENCE_CATEGORIES}
       articles={allArticles.map(entry => ({ slug: entry.slug, title: entry.data.title }))}
       currentPath="/evidence"
       baseUrl={baseUrl}

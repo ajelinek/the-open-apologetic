@@ -3,11 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout/index.astro';
 import CategoryFilter from '../../../components/layout/CategoryFilter/index.astro';
 import Button from '../../../components/foundation/Button/index.astro';
 import { baseUrl, routes, siteConfig } from '../../../config/site';
-
-const storiesCategories = [
-  { id: 'testimonies', label: 'Testimonies' },
-  { id: 'miracles', label: 'Miracles' }
-];
+import { STORIES_CATEGORIES } from '../../../config/categories';
 
 const categoryInfo = {
   title: 'Testimonies',
@@ -20,7 +16,7 @@ const contributeLink = `${siteConfig.github}/issues/new?title=My Testimony: &bod
 <BaseLayout title="Testimonies" currentPath="/stories/testimonies">
   <div class="stories-layout">
     <CategoryFilter 
-      categories={storiesCategories}
+      categories={STORIES_CATEGORIES}
       activeCategory="testimonies"
       currentPath="/stories/testimonies"
       baseUrl={baseUrl}

@@ -64,14 +64,10 @@ const isActive = (href: string) => {
 <div class={styles.backdrop} id="menu-backdrop"></div>
 
 <script is:inline>
-  console.log('Header script loading...');
-  
   const toggle = document.getElementById('menu-toggle');
   const nav = document.getElementById('main-nav');
   const backdrop = document.getElementById('menu-backdrop');
-  
-  console.log('Elements found:', { toggle: !!toggle, nav: !!nav, backdrop: !!backdrop });
-  
+
   function openMenu() {
     nav.style.transform = 'translateX(0)';
     backdrop.style.opacity = '1';
@@ -90,14 +86,12 @@ const isActive = (href: string) => {
   
   if (toggle && nav && backdrop) {
     toggle.addEventListener('click', function() {
-      console.log('Toggle clicked!');
       const isOpen = toggle.getAttribute('aria-expanded') === 'true';
       if (isOpen) {
         closeMenu();
       } else {
         openMenu();
       }
-      console.log('Menu opened:', !isOpen);
     });
     
     backdrop.addEventListener('click', function() {
@@ -109,9 +103,5 @@ const isActive = (href: string) => {
         closeMenu();
       }
     });
-    
-    console.log('Event listeners attached');
-  } else {
-    console.log('Some elements missing!');
   }
 </script>
