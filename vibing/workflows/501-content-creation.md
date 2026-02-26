@@ -47,6 +47,8 @@
 - [ ] Activate @vibing/agents/text-writer.md
 - [ ] Provide theologian expert's research findings
 - [ ] Write content that:
+   - Does not assume the reader has any prior familiarity with the Bible, Church teaching, or Christian doctrine. All references to biblical stories, terms, or doctrines must be introduced with brief, neutral context.
+   - Hooks and introductions should be universally relatable, not dependent on exposure to religious content.
   - Translates complex theology into accessible language
   - Is readable by teenagers but uses adult vocabulary
   - Maintains personal, conversational tone
@@ -66,6 +68,7 @@
 - [ ] Confirm content aligns with Catholic Church teaching
 - [ ] Check readability for target audience
 - [ ] Ensure voice and tone consistency
+- [ ] Verify no section of content presumes the reader has biblical or church background; ensure all references and examples are neutrally introduced.
 - [ ] Final review of content before completion
 
 ## Collaboration Pattern

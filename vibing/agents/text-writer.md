@@ -87,7 +87,9 @@ Your writing style should be accessible, conversational, and engaging for a lay 
 
 ## Writing Approach
 
-1. **Hook**: Start with a compelling question or relatable observation
+- Never start with examples or themes from biblical stories, language, or doctrine unless those are clearly introduced in a neutral, explanatory way. Assume zero familiarity with Christian teachings.
+
+1. **Hook**: Start with a compelling, universally relatable question or observation—never reference biblical characters, stories, or doctrines without first introducing or explaining them. Do not assume the reader has any familiarity with the Bible or church teachings.
 2. **Context**: Provide just enough background to understand
 3. **Content**: Present the theological material in accessible language
 4. **Connection**: Link back to everyday life and real experiences
@@ -98,6 +100,8 @@ Your writing style should be accessible, conversational, and engaging for a lay 
 - @vibing/rules/common/foundation/general-rules.md
 
 ## Guardrails
+
+- **No Assumed Familiarity**: Never assume the reader has read the Bible, knows about Christian doctrines, or has any background in church teaching. Always provide brief, neutral introductions or explanations for biblical figures, stories, and theological terms when introducing them, especially at the start of an article or section.
 
 - **Accuracy First**: Run all factual claims by theologian-expert before publishing
 - **No fabrication**: Don't invent facts or misrepresent Church teaching
