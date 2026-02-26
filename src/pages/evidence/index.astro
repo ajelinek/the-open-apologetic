@@ -3,6 +3,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { sortByOrder, filterAndSortByCategory } from '../../utils/sorting';
 import BaseLayout from '../../layouts/BaseLayout/index.astro';
 import Card from '../../components/foundation/Card/index.astro';
+import CategoryFilter from '../../components/layout/CategoryFilter/index.astro';
 import { baseUrl, routes } from '../../config/site';
 import styles from './styles.module.css';
 import categoryStyles from './category.module.css';
@@ -45,39 +46,13 @@ const allArticles = [
 
 <BaseLayout title="Evidence" currentPath="/evidence">
   <div class={categoryStyles.layout}>
-    <aside class={categoryStyles.sidebar}>
-      <nav class={categoryStyles.sideNav}>
-        <h3 class={categoryStyles.sideNavTitle}>Categories</h3>
-        <ul class={categoryStyles.sideNavList}>
-          {allCategories.map((cat) => (
-            <li>
-              <a 
-                href={`${baseUrl}/evidence/${cat}`} 
-                class:list={[
-                  categoryStyles.sideNavLink,
-                ]}
-              >
-                {categoryLabels[cat]}
-              </a>
-            </li>
-          ))}
-        </ul>
-        
-        <h3 class={categoryStyles.sideNavTitle}>All Articles</h3>
-        <ul class={categoryStyles.articleList}>
-          {allArticles.map((entry) => (
-            <li>
-              <a 
-                href={`${baseUrl}/evidence/${entry.slug}`} 
-                class={categoryStyles.articleLink}
-              >
-                {entry.data.title}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </aside>
+    <CategoryFilter 
+      categories={allCategories.map(cat => ({ id: cat, label: categoryLabels[cat] }))}
+      articles={allArticles.map(entry => ({ slug: entry.slug, title: entry.data.title }))}
+      currentPath="/evidence"
+      baseUrl={baseUrl}
+      section="evidence"
+    />
     
     <main class={categoryStyles.main}>
       <div class={styles.pageInner}>

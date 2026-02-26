@@ -2,7 +2,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { filterAndSortByCategory } from '../../../utils/sorting';
 import BaseLayout from '../../../layouts/BaseLayout/index.astro';
-import CategoryLayout from '../../../components/layout/CategoryLayout/index.astro';
+import CategoryFilter from '../../../components/layout/CategoryFilter/index.astro';
 import Card from '../../../components/foundation/Card/index.astro';
 import { baseUrl, routes } from '../../../config/site';
 
@@ -57,30 +57,79 @@ const evidenceCategories = [
 ---
 
 <BaseLayout title={categoryInfo.title} currentPath={`/evidence/${category}`}>
-  <CategoryLayout 
-    categories={evidenceCategories}
-    activeCategory={category}
-    currentPath={`/evidence/${category}`}
-    title={categoryInfo.title}
-    description={categoryInfo.description}
-    baseUrl={baseUrl}
-    section="evidence"
-  >
-    <div class="articles-list">
-      {categoryEvidence.map((entry: CollectionEntry<'evidence'>) => (
-        <Card href={`${baseUrl}/evidence/${entry.slug}`} icon={entry.data.icon}>
-          <span slot="title">{entry.data.title}</span>
-          {entry.data.description}
-        </Card>
-      ))}
-    </div>
-  </CategoryLayout>
+  <div class="category-layout">
+    <CategoryFilter 
+      categories={evidenceCategories}
+      activeCategory={category}
+      currentPath={`/evidence/${category}`}
+      baseUrl={baseUrl}
+      section="evidence"
+    />
+    
+    <main class="category-main">
+      <div class="category-inner">
+        <div class="category-header">
+          <h1>{categoryInfo.title}</h1>
+          <p>{categoryInfo.description}</p>
+        </div>
+        
+        <div class="articles-list">
+          {categoryEvidence.map((entry: CollectionEntry<'evidence'>) => (
+            <Card href={`${baseUrl}/evidence/${entry.slug}`} icon={entry.data.icon}>
+              <span slot="title">{entry.data.title}</span>
+              {entry.data.description}
+            </Card>
+          ))}
+        </div>
+      </div>
+    </main>
+  </div>
 </BaseLayout>
 
 <style>
+  .category-layout {
+    display: flex;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-4);
+    gap: var(--space-8);
+  }
+
+  .category-main {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .category-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .category-header {
+    margin-bottom: var(--space-10);
+    text-align: center;
+  }
+
+  .category-header h1 {
+    margin-bottom: var(--space-4);
+  }
+
+  .category-header p {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    max-width: 37.5rem;
+    margin: 0 auto;
+  }
+
   .articles-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: var(--space-6);
+  }
+
+  @media (max-width: 767px) {
+    .category-layout {
+      flex-direction: column;
+    }
   }
 </style>

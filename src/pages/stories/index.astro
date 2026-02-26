@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout/index.astro';
-import CategoryLayout from '../../components/layout/CategoryLayout/index.astro';
+import CategoryFilter from '../../components/layout/CategoryFilter/index.astro';
 import Card from '../../components/foundation/Card/index.astro';
 import { baseUrl, routes } from '../../config/site';
 
@@ -33,30 +33,78 @@ const storiesItems = [
 ---
 
 <BaseLayout title="Stories" currentPath="/stories">
-  <CategoryLayout 
-    categories={storiesCategories}
-    activeCategory=""
-    currentPath="/stories"
-    title={categoryInfo.title}
-    description={categoryInfo.description}
-    baseUrl={baseUrl}
-    section="stories"
-  >
-    <div class="grid">
-      {storiesItems.map((item) => (
-        <Card href={item.href} icon={item.icon}>
-          <span slot="title">{item.title}</span>
-          {item.description}
-        </Card>
-      ))}
-    </div>
-  </CategoryLayout>
+  <div class="stories-layout">
+    <CategoryFilter 
+      categories={storiesCategories}
+      currentPath="/stories"
+      baseUrl={baseUrl}
+      section="stories"
+    />
+    
+    <main class="stories-main">
+      <div class="stories-inner">
+        <div class="stories-header">
+          <h1>{categoryInfo.title}</h1>
+          <p>{categoryInfo.description}</p>
+        </div>
+        
+        <div class="grid">
+          {storiesItems.map((item) => (
+            <Card href={item.href} icon={item.icon}>
+              <span slot="title">{item.title}</span>
+              {item.description}
+            </Card>
+          ))}
+        </div>
+      </div>
+    </main>
+  </div>
 </BaseLayout>
 
 <style>
+  .stories-layout {
+    display: flex;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-4);
+    gap: var(--space-8);
+  }
+
+  .stories-main {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .stories-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .stories-header {
+    margin-bottom: var(--space-10);
+    text-align: center;
+  }
+
+  .stories-header h1 {
+    margin-bottom: var(--space-4);
+  }
+
+  .stories-header p {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    max-width: 37.5rem;
+    margin: 0 auto;
+  }
+
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: var(--space-6);
+  }
+
+  @media (max-width: 767px) {
+    .stories-layout {
+      flex-direction: column;
+    }
   }
 </style>

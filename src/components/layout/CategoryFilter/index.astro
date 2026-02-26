@@ -1,0 +1,328 @@
+---
+import Icon from '../../foundation/Icon/index.astro';
+
+interface Category {
+  id: string;
+  label: string;
+}
+
+interface Article {
+  slug: string;
+  title: string;
+}
+
+interface Props {
+  categories: Category[];
+  activeCategory?: string;
+  articles?: Article[];
+  currentPath: string;
+  baseUrl: string;
+  section?: 'evidence' | 'stories';
+}
+
+const { 
+  categories, 
+  activeCategory, 
+  articles = [], 
+  currentPath, 
+  baseUrl, 
+  section = 'evidence' 
+} = Astro.props;
+
+const getCategoryHref = (catId: string) => `${baseUrl}/${section}/${catId}`;
+const getArticleHref = (slug: string) => `${baseUrl}/${section}/${slug}`;
+---
+
+<div class="category-filter" id="category-filter">
+  <button 
+    class="filter-toggle" 
+    id="filter-toggle"
+    type="button"
+    aria-label="Toggle filter menu"
+    aria-expanded="false"
+  >
+    <Icon name="filter" size={18} />
+    <span>Filter</span>
+  </button>
+
+  <div class="filter-drawer" id="filter-drawer">
+    <div class="drawer-header">
+      <h3>Filter</h3>
+      <button 
+        class="drawer-close" 
+        id="filter-close"
+        type="button"
+        aria-label="Close filter menu"
+      >
+        <Icon name="close" size={20} />
+      </button>
+    </div>
+
+    <nav class="filter-nav">
+      <div class="filter-section">
+        <h4 class="filter-section-title">Categories</h4>
+        <ul class="filter-list">
+          {categories.map((cat) => (
+            <li>
+              <a 
+                href={getCategoryHref(cat.id)}
+                class:list={[
+                  'filter-link',
+                  { active: cat.id === activeCategory }
+                ]}
+              >
+                {cat.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {articles.length > 0 && (
+        <div class="filter-section">
+          <h4 class="filter-section-title">Articles</h4>
+          <ul class="filter-list articles-list">
+            {articles.map((article) => (
+              <li>
+                <a 
+                  href={getArticleHref(article.slug)}
+                  class="filter-link article-link"
+                >
+                  {article.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </nav>
+  </div>
+
+  <div class="filter-backdrop" id="filter-backdrop"></div>
+</div>
+
+<style>
+  .category-filter {
+    display: contents;
+  }
+
+  .filter-toggle {
+    display: none;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-burgundy);
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+  }
+
+  .filter-toggle:hover {
+    background-color: var(--color-cream);
+    border-color: var(--color-burgundy);
+  }
+
+  .filter-drawer {
+    width: 16.25rem;
+    flex-shrink: 0;
+  }
+
+  .drawer-header {
+    display: none;
+  }
+
+  .filter-nav {
+    position: sticky;
+    top: var(--space-8);
+  }
+
+  .filter-section {
+    margin-bottom: var(--space-6);
+  }
+
+  .filter-section-title {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-3);
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .filter-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .filter-link {
+    display: block;
+    padding: var(--space-2) var(--space-3);
+    color: var(--color-burgundy);
+    text-decoration: none;
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    border-radius: var(--radius-sm);
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  .filter-link:hover {
+    background-color: var(--color-cream);
+    color: var(--color-gold-dark);
+  }
+
+  .filter-link.active {
+    background-color: var(--color-burgundy);
+    color: var(--color-white);
+  }
+
+  .article-link {
+    color: var(--text-secondary);
+    border-left: 2px solid var(--color-border);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .article-link:hover {
+    border-color: var(--color-gold);
+    color: var(--color-burgundy);
+  }
+
+  .filter-backdrop {
+    display: none;
+  }
+
+  @media (max-width: 767px) {
+    .filter-toggle {
+      display: flex;
+    }
+
+    .filter-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(280px, 80vw);
+      background: var(--color-cream-light);
+      border-left: 1px solid var(--color-border);
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      z-index: 60;
+      overflow-y: auto;
+      padding: var(--space-4);
+    }
+
+    .filter-drawer.is-open {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .drawer-header h3 {
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--color-burgundy);
+      margin: 0;
+    }
+
+    .drawer-close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: var(--text-secondary);
+      border-radius: var(--radius-sm);
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .drawer-close:hover {
+      background-color: var(--color-cream);
+      color: var(--color-burgundy);
+    }
+
+    .filter-nav {
+      position: static;
+    }
+
+    .filter-backdrop {
+      display: block;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: 50;
+    }
+
+    .filter-backdrop.is-visible {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    const filterToggle = document.getElementById('filter-toggle');
+    const filterDrawer = document.getElementById('filter-drawer');
+    const filterClose = document.getElementById('filter-close');
+    const filterBackdrop = document.getElementById('filter-backdrop');
+
+    if (!filterToggle || !filterDrawer) return;
+
+    function openFilter() {
+      filterDrawer.classList.add('is-open');
+      filterBackdrop.classList.add('is-visible');
+      filterToggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeFilter() {
+      filterDrawer.classList.remove('is-open');
+      filterBackdrop.classList.remove('is-visible');
+      filterToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    filterToggle.addEventListener('click', function() {
+      const isOpen = filterToggle.getAttribute('aria-expanded') === 'true';
+      if (isOpen) {
+        closeFilter();
+      } else {
+        openFilter();
+      }
+    });
+
+    if (filterClose) {
+      filterClose.addEventListener('click', closeFilter);
+    }
+
+    if (filterBackdrop) {
+      filterBackdrop.addEventListener('click', closeFilter);
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeFilter();
+      }
+    });
+  })();
+</script>

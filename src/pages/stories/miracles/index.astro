@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout/index.astro';
-import CategoryLayout from '../../../components/layout/CategoryLayout/index.astro';
+import CategoryFilter from '../../../components/layout/CategoryFilter/index.astro';
 import Button from '../../../components/foundation/Button/index.astro';
 import { baseUrl, routes, siteConfig } from '../../../config/site';
 
@@ -18,41 +18,84 @@ const contributeLink = `${siteConfig.github}/issues/new?title=My Miracle: &body=
 ---
 
 <BaseLayout title="Miracles" currentPath="/stories/miracles">
-  <CategoryLayout 
-    categories={storiesCategories}
-    activeCategory="miracles"
-    currentPath="/stories/miracles"
-    title={categoryInfo.title}
-    description={categoryInfo.description}
-    baseUrl={baseUrl}
-    section="stories"
-  >
-    <div class="coming-soon">
-      <div class="coming-soon-icon">✨</div>
-      <h2>Coming Soon</h2>
-      <p>
-        We're gathering miracle stories from across the Catholic community—large and small, 
-        every miracle testifies to God's love and power.
-      </p>
-      <p>
-        Have you witnessed or experienced a miracle? We'd love to hear about it.
-      </p>
-      
-      <div class="contribute-box">
-        <h3>How to Contribute</h3>
-        <p>
-          To share a miracle story, please create a GitHub issue. 
-          Our team will review your submission and may feature it on this page.
-        </p>
-        <Button href={contributeLink} variant="gold" target="_blank" rel="noopener noreferrer">
-          Share Your Miracle →
-        </Button>
+  <div class="stories-layout">
+    <CategoryFilter 
+      categories={storiesCategories}
+      activeCategory="miracles"
+      currentPath="/stories/miracles"
+      baseUrl={baseUrl}
+      section="stories"
+    />
+    
+    <main class="stories-main">
+      <div class="stories-inner">
+        <div class="stories-header">
+          <h1>{categoryInfo.title}</h1>
+          <p>{categoryInfo.description}</p>
+        </div>
+        
+        <div class="coming-soon">
+          <div class="coming-soon-icon">✨</div>
+          <h2>Coming Soon</h2>
+          <p>
+            We're gathering miracle stories from across the Catholic community—large and small, 
+            every miracle testifies to God's love and power.
+          </p>
+          <p>
+            Have you witnessed or experienced a miracle? We'd love to hear about it.
+          </p>
+          
+          <div class="contribute-box">
+            <h3>How to Contribute</h3>
+            <p>
+              To share a miracle story, please create a GitHub issue. 
+              Our team will review your submission and may feature it on this page.
+            </p>
+            <Button href={contributeLink} variant="gold" target="_blank" rel="noopener noreferrer">
+              Share Your Miracle →
+            </Button>
+          </div>
+        </div>
       </div>
-    </div>
-  </CategoryLayout>
+    </main>
+  </div>
 </BaseLayout>
 
 <style>
+  .stories-layout {
+    display: flex;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-4);
+    gap: var(--space-8);
+  }
+
+  .stories-main {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .stories-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .stories-header {
+    margin-bottom: var(--space-10);
+    text-align: center;
+  }
+
+  .stories-header h1 {
+    margin-bottom: var(--space-4);
+  }
+
+  .stories-header p {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    max-width: 37.5rem;
+    margin: 0 auto;
+  }
+
   .coming-soon {
     text-align: center;
     padding: var(--space-12) var(--space-6);
@@ -94,5 +137,11 @@ const contributeLink = `${siteConfig.github}/issues/new?title=My Miracle: &body=
   .contribute-box p {
     font-size: var(--text-sm);
     margin-bottom: var(--space-4);
+  }
+
+  @media (max-width: 767px) {
+    .stories-layout {
+      flex-direction: column;
+    }
   }
 </style>
