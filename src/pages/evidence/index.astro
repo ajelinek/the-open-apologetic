@@ -58,7 +58,7 @@ const categoryLabels: Record<string, string> = Object.fromEntries(
               <h2 class={styles.categoryTitle}>{categoryLabels[category]}</h2>
               <div class={styles.grid}>
                 {items.map((entry: CollectionEntry<'evidence'>) => (
-                  <Card href={`${baseUrl}/evidence/${entry.slug}`} icon={entry.data.icon}>
+                  <Card href={`${baseUrl}/evidence/${entry.slug}`} icon={entry.data.icon} slug={entry.slug}>
                     <span slot="title">{entry.data.title}</span>
                     {entry.data.description}
                   </Card>

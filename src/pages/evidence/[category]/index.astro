@@ -47,14 +47,14 @@ const categoryEvidence = filterAndSortByCategory(allEvidence, category);
           <p>{categoryInfo.description}</p>
         </div>
         
-        <div class="articles-list">
-          {categoryEvidence.map((entry: CollectionEntry<'evidence'>) => (
-            <Card href={`${baseUrl}/evidence/${entry.slug}`} icon={entry.data.icon}>
-              <span slot="title">{entry.data.title}</span>
-              {entry.data.description}
-            </Card>
-          ))}
-        </div>
+         <div class="articles-list">
+           {categoryEvidence.map((entry: CollectionEntry<'evidence'>) => (
+             <Card href={`${baseUrl}/evidence/${entry.slug}`} icon={entry.data.icon} slug={entry.slug}>
+               <span slot="title">{entry.data.title}</span>
+               {entry.data.description}
+             </Card>
+           ))}
+         </div>
       </div>
     </main>
   </div>
