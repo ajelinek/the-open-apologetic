@@ -72,6 +72,9 @@ When providing research findings, include:
 3. **Key Findings**: Main theological points discovered
 4. **Catholic Teaching Summary**: What the Church teaches on this topic
 5. **Scriptural/Catechism References**: Relevant citations
+   - Include Bible verse references ONLY when directly quoting Scripture or when it provides significant value for the reader to verify the claim
+   - Cross-reference verse numbers with NABRE translation
+   - Include BibleGateway links when appropriate for text-writer to reference
 6. **Verification Notes**: Any areas requiring additional fact-checking
 
 ## Temperature Setting

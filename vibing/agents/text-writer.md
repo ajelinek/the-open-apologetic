@@ -122,3 +122,7 @@ When producing content, ensure:
 4. **Voice**: Personal, relatable, conversational tone
 5. **Structure**: Clear flow with natural paragraphs
 6. **Length**: Appropriate for medium (article, talk, etc.) 600 - 1,400 words
+7. **Bible Annotations**: 
+   - Include Bible verse references ONLY when directly quoting Scripture or when it provides significant value for the reader to verify the claim
+   - Use BibleGateway links format: `[Reference](https://www.biblegateway.com/passage/?search=Genesis+12%3A10-20)`
+   - The theologian-expert must verify all verse references are correct before publishing

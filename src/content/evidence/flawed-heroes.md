@@ -13,51 +13,51 @@ externalResources:
     type: "website"
 ---
 
-Here's something that makes the Bible different from most other religious texts: its heroes are deeply flawed. Moses was a murderer. David was an adulterer and murderer. Peter denied Jesus three times. Paul persecuted Christians before becoming one of the greatest apostles.
+Here's something that might surprise you about the Bible: its biggest heroes are deeply flawed. Moses committed murder. David, one of Israel's greatest kings, had an affair and then arranged for the woman's husband to be killed. Peter, who followed Jesus closely for years, denied knowing him three times when things got dangerous. And Paul, who wrote half the New Testament, once hunted down and imprisoned people for their faith.
 
-If humans were making up these stories, why would they include such embarrassing details about their own heroes?
-
-## What Makes This Significant
-
-This is actually a fascinating observation when you think about it. Most religious texts present their founders and key figures in idealized terms—as perfectly virtuous from the start or at least without significant moral failures. The Bible takes a radically different approach.
-
-Think about it this way: if you were writing a story about someone you wanted others to admire, you probably wouldn't include the times you lied, cheated, or failed spectacularly. Yet that's exactly what the biblical writers did.
-
-## The Faithful Failures
-
-The Bible doesn't sanitize its heroes. Here's what the scriptures actually tell us:
-
-- **Abraham:** Lied about his wife Sarah being his sister—not once, but twice—to protect himself from foreign kings (Genesis 12:10-20, Genesis 20)
-
-- **Moses:** Murdered an Egyptian taskmaster and hid him in the sand (Exodus 2:11-15). Later, when the Israelites complained about lack of water, he struck the rock in anger instead of speaking to it as God commanded—costing him entry into the Promised Land (Numbers 20:1-13)
-
-- **David:** One of Israel's greatest kings saw Bathsheba bathing, had an affair with her, then arranged for her husband Uriah to be killed in battle to cover up the pregnancy (2 Samuel 11)
-
-- **Peter:** The apostle who boldly declared he would never deny Jesus did exactly that—three times—before the rooster crowed (Matthew 26:69-75)
-
-- **All the apostles:** When Jesus was arrested, every single one abandoned him and fled (Mark 14:50)
-
-- **Paul:** Before becoming Christianity's greatest missionary, Saul of Tarsus actively persecuted Christians, approved of Stephen's execution, and dragged believers to prison (Acts 9:1-2, Philippians 3:6)
-
-These aren't minor character flaws. These are serious moral failures that the writers chose to include.
+If humans were making up these stories to inspire others, why would they include such embarrassing details?
 
 ## Why This Matters
 
-One way to think about it: the Bible reads like real history because it is real history. The people in these stories feel authentic—they make mistakes, struggle with temptation, and sometimes fail spectacularly. That's not what you'd expect from a made-up story designed to inspire faith.
+Think about how most religious texts present their important figures. Usually, they're portrayed as almost perfect—wise, virtuous, and morally upstanding from the start. The Bible does something radically different.
 
-This is why many Christians see the flaws of biblical heroes as evidence of the Bible's authenticity. Human authors fabricating religious stories would likely idealize their protagonists. The biblical writers did the opposite—they showed real people with real struggles who God still used in remarkable ways.
+Imagine you're writing a story about someone you want people to admire. You probably wouldn't highlight the times you lied, cheated, or failed badly. Yet that's exactly what the biblical writers did. They included the messy, embarrassing, painful parts of their heroes' lives.
 
-:::quote
-"The Bible doesn't present heroes—it presents humanity. And that's exactly what makes it credible."
-:::
+This approach is nearly unprecedented in ancient religious literature. Most human authors idealize the people they want others to look up to. The Bible's honest portrayal suggests something different was happening during its writing.
 
-## The Catholic Connection
+## The Bible's Honest Portrayal
 
-The Catholic Church teaches that Scripture is divinely inspired while being written by human authors in their own contexts and limitations (see Catechism of the Catholic Church 105-106, Dei Verbum). This means the Bible reflects both divine truth and authentic human experience—including human failure.
+The Bible doesn't sanitize its heroes. Here's what the scriptures actually tell us:
 
-The flaws of Biblical heroes actually confirm the Bible's authenticity in another way: it reads like real history from real people, not like a sanitized legend. The Catholic tradition recognizes that God chose to work through imperfect people—and that's actually the whole point of the Gospel.
+**Abraham**, considered the father of faith for Jews, Christians, and Muslims, lied about his wife Sarah being his sister—not once, but twice—to protect himself from foreign kings.
 
-So the next time you read about a biblical hero's failure, don't see it as a problem to explain away. See it as evidence that this is a book that refuses to pretend humans are anything other than what we are.
+**Moses**, the great leader who freed the Israelites from slavery, murdered an Egyptian taskmaster and hid the body in the sand. Later, when the Israelites complained about lack of water, he struck a rock in anger instead of speaking to it as God commanded. This act of disobedience cost him the chance to enter the Promised Land.
+
+**David**, described as "a man after God's own heart," saw a woman bathing, had an affair with her, and then arranged for her husband to be killed in battle to cover up the pregnancy.
+
+**Peter**, the apostle who boldly declared he would never abandon Jesus, did exactly that—three times—before the rooster crowed.
+
+**Paul**, who would later write most of the New Testament letters and start churches across the Roman Empire, first worked as a persecutor of Christians.
+
+These aren't minor character flaws. They're serious moral failures that the writers chose to include anyway.
+
+## What This Tells Us
+
+The flaws of biblical heroes actually confirm the Bible's authenticity in an important way. It reads like real history because it is real history. The people in these stories feel authentic—they make mistakes, struggle with temptation, and sometimes fail spectacularly.
+
+Human authors fabricating religious stories would likely idealize their protagonists to make them more inspiring. The biblical writers did the opposite. They showed real people with real struggles whom God still used in remarkable ways.
+
+This is why many people see these flaws as evidence of something beyond human authorship. The writers weren't trying to create perfect heroes. They were documenting what actually happened.
+
+## The Catholic Understanding
+
+The Catholic Church has a specific teaching about how the Bible was written. The Catechism of the Catholic Church (a summary of Catholic beliefs) teaches that God is the true author of Scripture, while human writers wrote as "true authors" in their own contexts and limitations (CCC 105).
+
+A document called Dei Verbum from the Second Vatican Council explains this further—it says the sacred writers wrote "as true authors" while being divinely inspired. This means the Bible contains both divine truth and authentic human experience, including human failure.
+
+The Catholic tradition recognizes that God chose to work through imperfect people. That's actually the whole point of the Christian message—God's power is made perfect in our weakness, not despite it.
+
+So when you read about a biblical hero's failure, don't see it as a problem to explain away. See it as evidence that this is a book that refuses to pretend humans are anything other than what we are.
 
 ---
 

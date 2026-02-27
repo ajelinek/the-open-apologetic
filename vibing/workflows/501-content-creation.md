@@ -39,6 +39,7 @@
   - Key theological points
   - Catholic teaching summary
   - Scriptural/Catechism references
+  - **Bible verse notations**: Include specific chapter and verse references ONLY when directly quoting Scripture or when it provides significant value for the reader to verify the claim
   - Any areas requiring careful handling
   - Verification notes
 
