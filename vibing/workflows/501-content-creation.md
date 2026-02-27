@@ -63,6 +63,21 @@
 - [ ] Run a word-count on the article body and record the total: **\_\_** words.
 - [ ] Verify the word count is within the required range (600–1,400 words). If not, revise and re-count.
 
+- Hyphenated sentence check:
+- [ ] Scan all sentences for em-dashes (—), en-dashes (–), or hyphenated clause connectors
+- [ ] Break any hyphenated sentences into separate sentences
+- [ ] Re-verify word count after fixing hyphenated sentences
+
+- Hype language check:
+- [ ] Scan for phrases like "Here's where it gets crazy," "This is where it gets interesting," "Get this," "There is more," or similar over-hyping
+- [ ] Remove or rephrase any hype language to make points directly
+- [ ] Let the content speak for itself without attention-grabbing transitions
+
+- Signposting phrase check:
+- [ ] Limit phrases like "Here's something else most people don't realize," "Did you know," "Here's the thing," "What most people don't realize"
+- [ ] Use no more than 1-2 such curiosity hooks per article
+- [ ] These are acceptable for opening hook but should not repeat throughout
+
 ### Phase 3: Quality Assurance
 
 - [ ] Verify all theological claims are accurate
