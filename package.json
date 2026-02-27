@@ -13,5 +13,9 @@
     "@fontsource/inter": "^5.2.8",
     "@fontsource/merriweather": "^5.2.11",
     "astro": "^5.17.1"
+  },
+  "devDependencies": {
+    "@cerios/playwright-step-decorator": "^2.1.0",
+    "@playwright/test": "^1.58.2"
   }
 }

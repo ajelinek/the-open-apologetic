@@ -2,39 +2,21 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { filterAndSortByCategory } from '../../../utils/sorting';
 import BaseLayout from '../../../layouts/BaseLayout/index.astro';
-import CategoryLayout from '../../../components/layout/CategoryLayout/index.astro';
+import CategoryFilter from '../../../components/layout/CategoryFilter/index.astro';
 import Card from '../../../components/foundation/Card/index.astro';
 import { baseUrl, routes } from '../../../config/site';
+import { EVIDENCE_CATEGORIES, EVIDENCE_DESCRIPTIONS } from '../../../config/categories';
 
 export async function getStaticPaths() {
-  const categories = ['scientific', 'historical', 'biblical', 'philosophy', 'doctrine'];
-  
-  const categoryInfo: Record<string, { title: string; description: string }> = {
-    scientific: {
-      title: 'Scientific Evidence',
-      description: 'Evidence from science that points toward the existence of God and the design of the universe.'
-    },
-    historical: {
-      title: 'Historical Evidence',
-      description: 'Historical facts and archaeological discoveries that support the credibility of the Bible and Christianity.'
-    },
-    biblical: {
-      title: 'Biblical Evidence',
-      description: 'Internal biblical evidence including manuscript accuracy, prophecies, and textual analysis.'
-    },
-    philosophy: {
-      title: 'Philosophy & Apologetics',
-      description: 'Philosophical arguments for God\'s existence and responses to common objections against faith.'
-    },
-    doctrine: {
-      title: 'Catholic Doctrine',
-      description: 'Supernatural occurrences and teachings that attest to the truth of Catholic doctrine and the intercession of saints.'
+  return EVIDENCE_CATEGORIES.map((category) => ({
+    params: { category: category.id },
+    props: { 
+      categoryInfo: {
+        title: category.label,
+        description: EVIDENCE_DESCRIPTIONS[category.id]
+      },
+      category: category.id
     }
-  };
-
-  return categories.map((category) => ({
-    params: { category },
-    props: { categoryInfo: categoryInfo[category], category }
   }));
 }
 
@@ -46,41 +28,82 @@ interface Props {
 const { categoryInfo, category } = Astro.props;
 const allEvidence = await getCollection('evidence');
 const categoryEvidence = filterAndSortByCategory(allEvidence, category);
-
-const evidenceCategories = [
-  { id: 'scientific', label: 'Scientific Evidence' },
-  { id: 'historical', label: 'Historical Evidence' },
-  { id: 'biblical', label: 'Biblical Evidence' },
-  { id: 'philosophy', label: 'Philosophy & Apologetics' },
-  { id: 'doctrine', label: 'Catholic Doctrine' }
-];
 ---
 
 <BaseLayout title={categoryInfo.title} currentPath={`/evidence/${category}`}>
-  <CategoryLayout 
-    categories={evidenceCategories}
-    activeCategory={category}
-    currentPath={`/evidence/${category}`}
-    title={categoryInfo.title}
-    description={categoryInfo.description}
-    baseUrl={baseUrl}
-    section="evidence"
-  >
-    <div class="articles-list">
-      {categoryEvidence.map((entry: CollectionEntry<'evidence'>) => (
-        <Card href={`${baseUrl}/evidence/${entry.slug.replace(/\d+_/g, '').split('/').pop() || ''}`} icon={entry.data.icon}>
-          <span slot="title">{entry.data.title}</span>
-          {entry.data.description}
-        </Card>
-      ))}
-    </div>
-  </CategoryLayout>
+  <div class="category-layout">
+    <CategoryFilter 
+      categories={EVIDENCE_CATEGORIES}
+      activeCategory={category}
+      currentPath={`/evidence/${category}`}
+      baseUrl={baseUrl}
+      section="evidence"
+    />
+    
+    <main class="category-main">
+      <div class="category-inner">
+        <div class="category-header">
+          <h1>{categoryInfo.title}</h1>
+          <p>{categoryInfo.description}</p>
+        </div>
+        
+         <div class="articles-list">
+           {categoryEvidence.map((entry: CollectionEntry<'evidence'>) => (
+             <Card href={`${baseUrl}/evidence/${entry.slug.replace(/\d+_/g, '').split('/').pop() || ''}`} icon={entry.data.icon} slug={entry.slug}>
+               <span slot="title">{entry.data.title}</span>
+               {entry.data.description}
+             </Card>
+           ))}
+         </div>
+      </div>
+    </main>
+  </div>
 </BaseLayout>
 
 <style>
+  .category-layout {
+    display: flex;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-4);
+    gap: var(--space-8);
+  }
+
+  .category-main {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .category-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .category-header {
+    margin-bottom: var(--space-10);
+    text-align: center;
+  }
+
+  .category-header h1 {
+    margin-bottom: var(--space-4);
+  }
+
+  .category-header p {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    max-width: 37.5rem;
+    margin: 0 auto;
+  }
+
   .articles-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: var(--space-6);
+  }
+
+  @media (max-width: 767px) {
+    .category-layout {
+      flex-direction: column;
+    }
   }
 </style>

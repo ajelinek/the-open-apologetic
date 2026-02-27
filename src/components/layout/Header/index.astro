@@ -21,10 +21,24 @@ const isActive = (href: string) => {
   <div class={styles.headerInner}>
     <a href={baseUrl + '/'} class={styles.logo}>
       <span class={styles.logoIcon}>✝</span>
-      <span>The Open Apologetic</span>
+      <span class={styles.logoText}>The Open Apologetic</span>
     </a>
     
-    <nav class={styles.nav}>
+    <button 
+      class={styles.menuToggle} 
+      aria-label="Toggle navigation menu" 
+      aria-expanded="false"
+      id="menu-toggle"
+      type="button"
+    >
+      <span class={styles.hamburger}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+    
+    <nav class={styles.nav} id="main-nav">
       {navLinks.map((link) => (
         <a 
           href={link.href} 
@@ -46,3 +60,48 @@ const isActive = (href: string) => {
     </nav>
   </div>
 </header>
+
+<div class={styles.backdrop} id="menu-backdrop"></div>
+
+<script is:inline>
+  const toggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('main-nav');
+  const backdrop = document.getElementById('menu-backdrop');
+
+  function openMenu() {
+    nav.style.transform = 'translateX(0)';
+    backdrop.style.opacity = '1';
+    backdrop.style.visibility = 'visible';
+    document.body.style.overflow = 'hidden';
+    toggle.setAttribute('aria-expanded', 'true');
+  }
+  
+  function closeMenu() {
+    nav.style.transform = '';
+    backdrop.style.opacity = '';
+    backdrop.style.visibility = '';
+    document.body.style.overflow = '';
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+  
+  if (toggle && nav && backdrop) {
+    toggle.addEventListener('click', function() {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+    
+    backdrop.addEventListener('click', function() {
+      closeMenu();
+    });
+    
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeMenu();
+      }
+    });
+  }
+</script>

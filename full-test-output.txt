@@ -1,0 +1,175 @@
+
+Running 12 tests using 7 workers
+
+  ✘   4 [chromium] › tests/spec/read-tracking.spec.ts:161:3 › Read Tracking Feature › should persist read status across page reloads (3.9s)
+  ✓   2 [chromium] › tests/spec/read-tracking.spec.ts:68:3 › Read Tracking Feature › should display read class on article card after reading (3.9s)
+  ✘   3 [chromium] › tests/spec/read-tracking.spec.ts:213:3 › Read Tracking Feature › should clear read status when localStorage is cleared (3.9s)
+Marked as read log found: [33mtrue[39m
+Read data: { [32m'fine-tuned-universe'[39m: [32m'2026-02-26T12:07:13.409Z'[39m }
+Expected slug: fine-tuned-universe
+  ✓   1 [chromium] › tests/spec/read-tracking.spec.ts:13:3 › Read Tracking Feature › should mark article as read when scrolling 75% down the page (4.4s)
+Marked as read log found: [33mtrue[39m
+Read data: { [32m'fine-tuned-universe'[39m: [32m'2026-02-26T12:07:13.691Z'[39m }
+Expected slug: fine-tuned-universe
+  ✓   5 [mobile] › tests/spec/read-tracking.spec.ts:13:3 › Read Tracking Feature › should mark article as read when scrolling 75% down the page (4.4s)
+  ✘   6 [chromium] › tests/spec/read-tracking.spec.ts:110:3 › Read Tracking Feature › should display read badge checkmark visually (4.9s)
+  ✘   7 [chromium] › tests/spec/read-tracking.spec.ts:267:3 › Read Tracking Feature › should mark multiple articles as read and display badges for all (7.0s)
+  ✓   8 [mobile] › tests/spec/read-tracking.spec.ts:68:3 › Read Tracking Feature › should display read class on article card after reading (3.7s)
+  ✘  10 [mobile] › tests/spec/read-tracking.spec.ts:161:3 › Read Tracking Feature › should persist read status across page reloads (3.8s)
+  ✘  12 [mobile] › tests/spec/read-tracking.spec.ts:213:3 › Read Tracking Feature › should clear read status when localStorage is cleared (3.7s)
+  ✘  11 [mobile] › tests/spec/read-tracking.spec.ts:110:3 › Read Tracking Feature › should display read badge checkmark visually (4.8s)
+  ✘   9 [mobile] › tests/spec/read-tracking.spec.ts:267:3 › Read Tracking Feature › should mark multiple articles as read and display badges for all (6.8s)
+
+
+  1) [chromium] › tests/spec/read-tracking.spec.ts:110:3 › Read Tracking Feature › should display read badge checkmark visually 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mnot[2m.[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: not [32m"none"[39m
+
+      154 |     expect(badgeInfo.exists).toBe(true);
+      155 |     expect(badgeInfo.text).toContain('✓');
+    > 156 |     expect(badgeInfo.display).not.toBe('none');
+          |                                   ^
+      157 |     expect(badgeInfo.visibility).not.toBe('hidden');
+      158 |     expect(badgeInfo.inlineDisplay).toBe('flex !important');
+      159 |   });
+        at /Users/ajelinek/code/the-open-apologetic-wks/article-read-indicators/tests/spec/read-tracking.spec.ts:156:35
+
+    Error Context: test-results/read-tracking-Read-Trackin-beba2-ad-badge-checkmark-visually-chromium/error-context.md
+
+  2) [chromium] › tests/spec/read-tracking.spec.ts:161:3 › Read Tracking Feature › should persist read status across page reloads 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+      194 |       return computedStyle.display !== 'none' && computedStyle.visibility !== 'hidden';
+      195 |     });
+    > 196 |     expect(isVisible).toBe(true);
+          |                       ^
+      197 |     
+      198 |     // Reload the page
+      199 |     await page.reload();
+        at /Users/ajelinek/code/the-open-apologetic-wks/article-read-indicators/tests/spec/read-tracking.spec.ts:196:23
+
+    Error Context: test-results/read-tracking-Read-Trackin-529ce--status-across-page-reloads-chromium/error-context.md
+
+  3) [chromium] › tests/spec/read-tracking.spec.ts:213:3 › Read Tracking Feature › should clear read status when localStorage is cleared 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+      244 |       return computedStyle.display !== 'none' && computedStyle.visibility !== 'hidden';
+      245 |     });
+    > 246 |     expect(isVisibleBefore).toBe(true);
+          |                             ^
+      247 |     
+      248 |     // Clear localStorage
+      249 |     await page.evaluate(() => {
+        at /Users/ajelinek/code/the-open-apologetic-wks/article-read-indicators/tests/spec/read-tracking.spec.ts:246:29
+
+    Error Context: test-results/read-tracking-Read-Trackin-7d61d-hen-localStorage-is-cleared-chromium/error-context.md
+
+  4) [chromium] › tests/spec/read-tracking.spec.ts:267:3 › Read Tracking Feature › should mark multiple articles as read and display badges for all 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+      330 |     });
+      331 |     
+    > 332 |     expect(badge1Visible).toBe(true);
+          |                           ^
+      333 |     expect(badge2Visible).toBe(true);
+      334 |   });
+      335 | });
+        at /Users/ajelinek/code/the-open-apologetic-wks/article-read-indicators/tests/spec/read-tracking.spec.ts:332:27
+
+    Error Context: test-results/read-tracking-Read-Trackin-21e5c--and-display-badges-for-all-chromium/error-context.md
+
+  5) [mobile] › tests/spec/read-tracking.spec.ts:110:3 › Read Tracking Feature › should display read badge checkmark visually 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mnot[2m.[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: not [32m"none"[39m
+
+      154 |     expect(badgeInfo.exists).toBe(true);
+      155 |     expect(badgeInfo.text).toContain('✓');
+    > 156 |     expect(badgeInfo.display).not.toBe('none');
+          |                                   ^
+      157 |     expect(badgeInfo.visibility).not.toBe('hidden');
+      158 |     expect(badgeInfo.inlineDisplay).toBe('flex !important');
+      159 |   });
+        at /Users/ajelinek/code/the-open-apologetic-wks/article-read-indicators/tests/spec/read-tracking.spec.ts:156:35
+
+    Error Context: test-results/read-tracking-Read-Trackin-beba2-ad-badge-checkmark-visually-mobile/error-context.md
+
+  6) [mobile] › tests/spec/read-tracking.spec.ts:161:3 › Read Tracking Feature › should persist read status across page reloads 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+      194 |       return computedStyle.display !== 'none' && computedStyle.visibility !== 'hidden';
+      195 |     });
+    > 196 |     expect(isVisible).toBe(true);
+          |                       ^
+      197 |     
+      198 |     // Reload the page
+      199 |     await page.reload();
+        at /Users/ajelinek/code/the-open-apologetic-wks/article-read-indicators/tests/spec/read-tracking.spec.ts:196:23
+
+    Error Context: test-results/read-tracking-Read-Trackin-529ce--status-across-page-reloads-mobile/error-context.md
+
+  7) [mobile] › tests/spec/read-tracking.spec.ts:213:3 › Read Tracking Feature › should clear read status when localStorage is cleared 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+      244 |       return computedStyle.display !== 'none' && computedStyle.visibility !== 'hidden';
+      245 |     });
+    > 246 |     expect(isVisibleBefore).toBe(true);
+          |                             ^
+      247 |     
+      248 |     // Clear localStorage
+      249 |     await page.evaluate(() => {
+        at /Users/ajelinek/code/the-open-apologetic-wks/article-read-indicators/tests/spec/read-tracking.spec.ts:246:29
+
+    Error Context: test-results/read-tracking-Read-Trackin-7d61d-hen-localStorage-is-cleared-mobile/error-context.md
+
+  8) [mobile] › tests/spec/read-tracking.spec.ts:267:3 › Read Tracking Feature › should mark multiple articles as read and display badges for all 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+      330 |     });
+      331 |     
+    > 332 |     expect(badge1Visible).toBe(true);
+          |                           ^
+      333 |     expect(badge2Visible).toBe(true);
+      334 |   });
+      335 | });
+        at /Users/ajelinek/code/the-open-apologetic-wks/article-read-indicators/tests/spec/read-tracking.spec.ts:332:27
+
+    Error Context: test-results/read-tracking-Read-Trackin-21e5c--and-display-badges-for-all-mobile/error-context.md
+
+  8 failed
+    [chromium] › tests/spec/read-tracking.spec.ts:110:3 › Read Tracking Feature › should display read badge checkmark visually 
+    [chromium] › tests/spec/read-tracking.spec.ts:161:3 › Read Tracking Feature › should persist read status across page reloads 
+    [chromium] › tests/spec/read-tracking.spec.ts:213:3 › Read Tracking Feature › should clear read status when localStorage is cleared 
+    [chromium] › tests/spec/read-tracking.spec.ts:267:3 › Read Tracking Feature › should mark multiple articles as read and display badges for all 
+    [mobile] › tests/spec/read-tracking.spec.ts:110:3 › Read Tracking Feature › should display read badge checkmark visually 
+    [mobile] › tests/spec/read-tracking.spec.ts:161:3 › Read Tracking Feature › should persist read status across page reloads 
+    [mobile] › tests/spec/read-tracking.spec.ts:213:3 › Read Tracking Feature › should clear read status when localStorage is cleared 
+    [mobile] › tests/spec/read-tracking.spec.ts:267:3 › Read Tracking Feature › should mark multiple articles as read and display badges for all 
+  4 passed (12.4s)

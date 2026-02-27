@@ -1,13 +1,9 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout/index.astro';
-import CategoryLayout from '../../../components/layout/CategoryLayout/index.astro';
+import CategoryFilter from '../../../components/layout/CategoryFilter/index.astro';
 import Button from '../../../components/foundation/Button/index.astro';
 import { baseUrl, routes, siteConfig } from '../../../config/site';
-
-const storiesCategories = [
-  { id: 'testimonies', label: 'Testimonies' },
-  { id: 'miracles', label: 'Miracles' }
-];
+import { STORIES_CATEGORIES } from '../../../config/categories';
 
 const categoryInfo = {
   title: 'Testimonies',
@@ -18,41 +14,84 @@ const contributeLink = `${siteConfig.github}/issues/new?title=My Testimony: &bod
 ---
 
 <BaseLayout title="Testimonies" currentPath="/stories/testimonies">
-  <CategoryLayout 
-    categories={storiesCategories}
-    activeCategory="testimonies"
-    currentPath="/stories/testimonies"
-    title={categoryInfo.title}
-    description={categoryInfo.description}
-    baseUrl={baseUrl}
-    section="stories"
-  >
-    <div class="coming-soon">
-      <div class="coming-soon-icon">📣</div>
-      <h2>Coming Soon</h2>
-      <p>
-        We're building a collection of powerful testimonies from people who have experienced 
-        God's love and grace in their lives.
-      </p>
-      <p>
-        Have a testimony to share? We want to hear your story!
-      </p>
-      
-      <div class="contribute-box">
-        <h3>How to Contribute</h3>
-        <p>
-          To add your testimony to this collection, please create a GitHub issue. 
-          Our team will review your submission and may feature it on this page.
-        </p>
-        <Button href={contributeLink} variant="gold" target="_blank" rel="noopener noreferrer">
-          Share Your Testimony →
-        </Button>
+  <div class="stories-layout">
+    <CategoryFilter 
+      categories={STORIES_CATEGORIES}
+      activeCategory="testimonies"
+      currentPath="/stories/testimonies"
+      baseUrl={baseUrl}
+      section="stories"
+    />
+    
+    <main class="stories-main">
+      <div class="stories-inner">
+        <div class="stories-header">
+          <h1>{categoryInfo.title}</h1>
+          <p>{categoryInfo.description}</p>
+        </div>
+        
+        <div class="coming-soon">
+          <div class="coming-soon-icon">📣</div>
+          <h2>Coming Soon</h2>
+          <p>
+            We're building a collection of powerful testimonies from people who have experienced 
+            God's love and grace in their lives.
+          </p>
+          <p>
+            Have a testimony to share? We want to hear your story!
+          </p>
+          
+          <div class="contribute-box">
+            <h3>How to Contribute</h3>
+            <p>
+              To add your testimony to this collection, please create a GitHub issue. 
+              Our team will review your submission and may feature it on this page.
+            </p>
+            <Button href={contributeLink} variant="gold" target="_blank" rel="noopener noreferrer">
+              Share Your Testimony →
+            </Button>
+          </div>
+        </div>
       </div>
-    </div>
-  </CategoryLayout>
+    </main>
+  </div>
 </BaseLayout>
 
 <style>
+  .stories-layout {
+    display: flex;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-4);
+    gap: var(--space-8);
+  }
+
+  .stories-main {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .stories-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .stories-header {
+    margin-bottom: var(--space-10);
+    text-align: center;
+  }
+
+  .stories-header h1 {
+    margin-bottom: var(--space-4);
+  }
+
+  .stories-header p {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    max-width: 37.5rem;
+    margin: 0 auto;
+  }
+
   .coming-soon {
     text-align: center;
     padding: var(--space-12) var(--space-6);
@@ -94,5 +133,11 @@ const contributeLink = `${siteConfig.github}/issues/new?title=My Testimony: &bod
   .contribute-box p {
     font-size: var(--text-sm);
     margin-bottom: var(--space-4);
+  }
+
+  @media (max-width: 767px) {
+    .stories-layout {
+      flex-direction: column;
+    }
   }
 </style>

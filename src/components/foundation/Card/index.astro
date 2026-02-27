@@ -4,12 +4,14 @@ import styles from './styles.module.css';
 interface Props {
   href?: string;
   icon?: string;
+  slug?: string;
   class?: string;
 }
 
 const {
   href,
   icon,
+  slug,
   class: className
 } = Astro.props;
 
@@ -21,7 +23,7 @@ const classList = [
 ---
 
 {href ? (
-  <a href={href} class:list={classList}>
+  <a href={href} class:list={classList} data-slug={slug}>
     {icon && <div class={styles.icon}>{icon}</div>}
     <div class={styles.header}>
       <h3 class={styles.title}><slot name="title" /></h3>
@@ -31,13 +33,15 @@ const classList = [
       Learn more
       <span class={styles.linkArrow}>→</span>
     </span>
+    {slug && <div class={styles.badge} aria-label="Read" data-testid="read-badge">✓</div>}
   </a>
 ) : (
-  <div class:list={classList}>
+  <div class:list={classList} data-slug={slug}>
     {icon && <div class={styles.icon}>{icon}</div>}
     <div class={styles.header}>
       <h3 class={styles.title}><slot name="title" /></h3>
     </div>
     <p class={styles.description}><slot /></p>
+    {slug && <div class={styles.badge} aria-label="Read" data-testid="read-badge">✓</div>}
   </div>
 )}
