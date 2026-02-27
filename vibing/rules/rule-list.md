@@ -12,6 +12,12 @@ This document provides a comprehensive list of all available rules organized by 
 
 - @vibing/rules/common/foundation/error-handling-guidelines.md - Comprehensive error handling patterns with consistent machine-readable categories (UNAUTHENTICATED, FORBIDDEN, BAD_USER_INPUT, NOT_FOUND, CONFLICT, RATE_LIMITED, INTERNAL_SERVER_ERROR), user-safe messages, normalized error shapes, and proper logging. Use for all error handling implementation across client, service, and API layers
 
+## Content Creation Rules
+
+**Theological content writing guidelines**
+
+- @vibing/rules/evidence-creation-rules.md - Complete writing rules for creating accessible theological content including target audience (young adults 18-25), voice and tone guidelines, sentence structure requirements, guardrails, and quality enforcement checklist. Use for all evidence articles, talks, and blog posts requiring theological content
+
 ## Technology-Specific Rules
 
 ### Apollo GraphQL
