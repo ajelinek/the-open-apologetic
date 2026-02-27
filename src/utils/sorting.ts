@@ -4,7 +4,8 @@ import type { CollectionEntry } from 'astro:content';
  * Extract numeric order from filename (e.g., "1000_title.md" -> 1000)
  */
 function getFileOrder(entry: { id: string }): number {
-  const match = entry.id.match(/^(\d+)_/);
+  const filename = entry.id.split('/').pop() ?? '';
+  const match = filename.match(/^(\d+)_/);
   return match ? parseInt(match[1], 10) : 0;
 }
 
