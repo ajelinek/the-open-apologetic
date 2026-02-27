@@ -1,0 +1,20 @@
+Error: Cannot find module 'verbose'
+Require stack:
+- /Users/ajelinek/code/the-open-apologetic-wks/article-read-indicators/node_modules/.pnpm/playwright@1.58.2/node_modules/playwright/lib/program.js
+- /Users/ajelinek/code/the-open-apologetic-wks/article-read-indicators/node_modules/.pnpm/@playwright+test@1.58.2/node_modules/@playwright/test/cli.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at Function.resolve (node:internal/modules/helpers:145:19)
+    at resolveReporter (/Users/ajelinek/code/the-open-apologetic-wks/article-read-indicators/node_modules/.pnpm/playwright@1.58.2/node_modules/playwright/lib/program.js:363:18)
+    at /Users/ajelinek/code/the-open-apologetic-wks/article-read-indicators/node_modules/.pnpm/playwright@1.58.2/node_modules/playwright/lib/program.js:324:42
+    at Array.map (<anonymous>)
+    at resolveReporterOption (/Users/ajelinek/code/the-open-apologetic-wks/article-read-indicators/node_modules/.pnpm/playwright@1.58.2/node_modules/playwright/lib/program.js:324:30)
+    at overridesFromOptions (/Users/ajelinek/code/the-open-apologetic-wks/article-read-indicators/node_modules/.pnpm/playwright@1.58.2/node_modules/playwright/lib/program.js:283:15)
+    at runTests (/Users/ajelinek/code/the-open-apologetic-wks/article-read-indicators/node_modules/.pnpm/playwright@1.58.2/node_modules/playwright/lib/program.js:196:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async i.<anonymous> (/Users/ajelinek/code/the-open-apologetic-wks/article-read-indicators/node_modules/.pnpm/playwright@1.58.2/node_modules/playwright/lib/program.js:70:7) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/ajelinek/code/the-open-apologetic-wks/article-read-indicators/node_modules/.pnpm/playwright@1.58.2/node_modules/playwright/lib/program.js',
+    '/Users/ajelinek/code/the-open-apologetic-wks/article-read-indicators/node_modules/.pnpm/@playwright+test@1.58.2/node_modules/@playwright/test/cli.js'
+  ]
+}

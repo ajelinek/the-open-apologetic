@@ -24,7 +24,7 @@ const pageTitle = entry.data.title;
 ---
 
 <BaseLayout title={pageTitle} currentPath="/evidence">
-  <article class={styles.page}>
+  <article class={styles.page} data-article-slug={entry.slug}>
     <div class={styles.pageInner}>
       <a href={routes.evidence()} class={styles.backLink}>← Back to Evidence</a>
       
@@ -53,4 +53,52 @@ const pageTitle = entry.data.title;
       </div>
     </div>
   </article>
+  
+  <script>
+    import { markRead } from '../../utils/readTracker';
+    
+    // Get article slug from data attribute
+    const article = document.querySelector('[data-article-slug]');
+    const slug = article?.getAttribute('data-article-slug');
+    
+    console.log('[readTracking] Article slug:', slug);
+    
+    if (slug) {
+      // Track scroll depth and mark as read at 75%
+      let marked = false;
+      
+      const checkScrollDepth = () => {
+        if (marked) return;
+        
+        // Calculate scroll percentage
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollTop = window.scrollY;
+        const scrollPercent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+        
+        console.log('[readTracking] Current scroll percent:', scrollPercent);
+        
+        // Mark as read at 75% scroll
+        if (scrollPercent >= 75) {
+          console.log('[readTracking] Marking as read:', slug);
+          markRead(slug);
+          marked = true;
+          window.removeEventListener('scroll', checkScrollDepth);
+          clearInterval(pollInterval);
+          console.log('[readTracking] Article marked as read');
+        }
+      };
+      
+      // Listen to scroll events
+      window.addEventListener('scroll', checkScrollDepth, { passive: true });
+      
+      // Also poll periodically in case scroll events don't fire
+      const pollInterval = setInterval(checkScrollDepth, 500);
+      
+      // Clean up on page unload
+      window.addEventListener('beforeunload', () => {
+        window.removeEventListener('scroll', checkScrollDepth);
+        clearInterval(pollInterval);
+      });
+    }
+  </script>
 </BaseLayout>

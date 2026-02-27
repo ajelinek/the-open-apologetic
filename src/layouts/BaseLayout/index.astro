@@ -41,5 +41,17 @@ const fullTitle = title === 'Home' ? 'The Open Apologetic' : `${title} | The Ope
       
       <Footer />
     </div>
+    
+    <script>
+      import { initReadTracking } from '../../client/readTracker-init';
+      
+      // Wait for DOM to be fully loaded before initializing
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initReadTracking);
+      } else {
+        // DOM is already loaded
+        initReadTracking();
+      }
+    </script>
   </body>
 </html>
