@@ -2,7 +2,6 @@
 title: "The Mount of Olives Prophecy"
 description: "Zechariah 14:4 prophesied the Mount of Olives would split. In 1964, a geological survey found a fault line running through the mountain."
 category: "biblical"
-order: 18
 icon: "⛰️"
 externalResources:
   - title: "1964 Geological Survey Report"
@@ -21,7 +20,7 @@ This is a prophecy about the return of Jesus Christ.
 
 ## The Discovery
 
-In 1964, Holiday Inn (now InterContinental Hotels Group) planned to build a hotel on the Mount of Olives. They commissioned a geological survey to assess the feasibility of construction.
+In 1964, Holiday Inn (now InterContinental Hotels Group) planned to build a hotel on the Mount of Olives. They commissioned a the feasibility of construction geological survey to assess.
 
 ### What the Survey Found
 

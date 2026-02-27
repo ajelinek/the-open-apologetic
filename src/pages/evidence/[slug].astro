@@ -8,7 +8,7 @@ import styles from '../evidence/styles.module.css';
 export async function getStaticPaths() {
   const evidenceEntries = await getCollection('evidence');
   return evidenceEntries.map((entry: CollectionEntry<'evidence'>) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.slug.replace(/\d+_/g, '').split('/').pop() || '' },
     props: { entry },
   }));
 }

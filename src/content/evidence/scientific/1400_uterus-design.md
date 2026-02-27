@@ -2,7 +2,6 @@
 title: "The Uterus: Design for Motherhood"
 description: "How the female body is designed to prepare mothers for the demands of caring for a newborn. The remarkable design of the uterus and its connection to newborn care."
 category: "scientific"
-order: 23
 icon: "👶"
 externalResources: []
 ---

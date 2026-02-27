@@ -2,7 +2,6 @@
 title: "Bible Archaeology"
 description: "Archaeological discoveries that confirm biblical events, places, and people. From King David to the Hittites, see what excavations reveal."
 category: "historical"
-order: 17
 icon: "🏛️"
 externalResources:
   - title: "53 People in the Bible Confirmed Archaeologically"

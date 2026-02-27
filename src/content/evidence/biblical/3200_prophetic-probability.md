@@ -2,7 +2,6 @@
 title: "Prophetic Probability"
 description: "300+ prophecies about the Messiah, written hundreds of years before Jesus. Probability calculations are staggering."
 category: "biblical"
-order: 3
 icon: "✡️"
 externalResources:
   - title: "Evidence That Demands a Verdict"
@@ -34,7 +33,7 @@ Let me try to make that number feel real.
 
 Here's how you can visualize it:
 
-- Cover the entire state of Texas in silver dollars two feet deep
+- Cover the entire state of Texas with silver dollars two feet deep
 - Mark just one specific coin
 - Blindfold yourself, walk out into that sea of coins, and pick that exact marked coin on your very first try
 

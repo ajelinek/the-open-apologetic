@@ -14,13 +14,34 @@ This directory contains Astro Content Collections for evidence articles.
 
 ```
 content/
-├── config.ts        # Collection definitions
-└── evidence/       # Evidence markdown files
-    ├── apostle-martyrdom.md
-    ├── big-bang.md
-    ├── dna-evidence.md
-    └── ...
+├── config.ts              # Collection definitions
+└── evidence/             # Evidence markdown files
+    ├── scientific/       # Scientific evidence (1000-1999)
+    │   ├── 1000_fine-tuned-universe.md
+    │   └── ...
+    ├── historical/       # Historical evidence (2000-2999)
+    │   └── ...
+    ├── biblical/         # Biblical evidence (3000-3999)
+    │   └── ...
+    ├── philosophy/       # Philosophical evidence (4000-4999)
+    │   └── ...
+    └── doctrine/         # Doctrinal evidence (5000-5999)
+        └── ...
 ```
+
+## Numbering System
+
+Files are named with numeric prefixes to determine display order:
+
+| Category    | Range   |
+|-------------|---------|
+| scientific  | 1000-1999 |
+| historical  | 2000-2999 |
+| biblical    | 3000-3999 |
+| philosophy  | 4000-4999 |
+| doctrine    | 5000-5999 |
+
+Use gaps of 100 between articles to allow for future insertions (e.g., 1000, 1100, 1200).
 
 ## Collection Schema
 
@@ -33,8 +54,7 @@ const evidence = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    category: z.enum(['scientific', 'historical', 'catholic']),
-    order: z.number(),
+    category: z.enum(['scientific', 'historical', 'biblical', 'philosophy', 'doctrine']),
     icon: z.string().optional(),
     externalResources: z.array(
       z.object({
@@ -51,14 +71,13 @@ export const collections = { evidence };
 
 ## Adding New Evidence
 
-Create a new `.md` file in `src/content/evidence/`:
+Create a new `.md` file in the appropriate category folder with a numeric prefix:
 
 ```markdown
 ---
 title: "Your Title"
 description: "Brief description"
-category: scientific | historical | catholic
-order: 1
+category: scientific | historical | biblical | philosophy | doctrine
 icon: "🔬"
 externalResources:
   - title: "Resource Title"
@@ -74,9 +93,10 @@ Your markdown content here...
 ```astro
 ---
 import { getCollection } from 'astro:content';
+import { sortByOrder } from '../utils/sorting';
 
 const allEvidence = await getCollection('evidence');
-const sortedEvidence = allEvidence.sort((a, b) => a.data.order - b.data.order);
+const sortedEvidence = sortByOrder(allEvidence);
 ---
 
 {sortedEvidence.map((item) => (

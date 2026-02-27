@@ -6,7 +6,6 @@ const evidence = defineCollection({
     title: z.string(),
     description: z.string(),
     category: z.enum(['scientific', 'historical', 'biblical', 'philosophy', 'doctrine']),
-    order: z.number(),
     icon: z.string().optional(),
     externalResources: z.array(
       z.object({

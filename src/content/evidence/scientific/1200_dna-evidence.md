@@ -2,14 +2,13 @@
 title: "DNA & Design"
 description: "DNA functions as a four-character digital code. The information in DNA is staggering—and points to intelligent design."
 category: "scientific"
-order: 3
 icon: "🧬"
 externalResources:
   - title: "Signature in the Cell"
     url: "https://www.amazon.com/Signature-Cell-DNA-Evidence-Meaning/dp/1586144375"
     type: "book"
   - title: "The Information Enigma"
-    url: "https://www.youtube.com/watch?v?v=2fsvqMFWqFc"
+    url: "https://www.youtube.com/watch?v=2fsvqMFWqFc"
     type: "video"
   - title: "Discovery Institute - Information Theory"
     url: "https://discovery.org/c/information-theory/"

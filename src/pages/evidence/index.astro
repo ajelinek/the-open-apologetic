@@ -68,7 +68,7 @@ const allArticles = [
           {allArticles.map((entry) => (
             <li>
               <a 
-                href={`${baseUrl}/evidence/${entry.slug}`} 
+                href={`${baseUrl}/evidence/${entry.slug.replace(/\d+_/g, '').split('/').pop() || ''}`} 
                 class={categoryStyles.articleLink}
               >
                 {entry.data.title}
@@ -95,7 +95,7 @@ const allArticles = [
               <h2 class={styles.categoryTitle}>{categoryLabels[category]}</h2>
               <div class={styles.grid}>
                 {items.map((entry: CollectionEntry<'evidence'>) => (
-                  <Card href={`${baseUrl}/evidence/${entry.slug}`} icon={entry.data.icon}>
+                  <Card href={`${baseUrl}/evidence/${entry.slug.replace(/\d+_/g, '').split('/').pop() || ''}`} icon={entry.data.icon}>
                     <span slot="title">{entry.data.title}</span>
                     {entry.data.description}
                   </Card>

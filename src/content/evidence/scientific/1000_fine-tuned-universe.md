@@ -2,7 +2,6 @@
 title: "The Fine-Tuned Universe"
 description: "The universe exhibits extraordinary precision in its fundamental constants. If any value were different, life would be impossible."
 category: "scientific"
-order: 1
 icon: "🌌"
 externalResources:
   - title: "The Return of the God Hypothesis"

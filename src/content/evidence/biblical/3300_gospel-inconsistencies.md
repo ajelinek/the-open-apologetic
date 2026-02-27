@@ -2,7 +2,6 @@
 title: "Gospel Inconsistencies"
 description: "The 'inconsistencies' in the Gospels actually prove authenticity. Truth allows variation; fabrication requires consistency."
 category: "biblical"
-order: 4
 icon: "📕"
 externalResources:
   - title: "The Historical Reliability of the Gospels"
@@ -22,7 +21,7 @@ But here's the thing: these "inconsistencies" are consistent with the Gospels be
 
 ## Why Variation Proves Authenticity
 
-Consider this: If four people witnessed the same event and then got together to fabricate a story, they would make sure their accounts matched perfectly. That's what liars do.
+Consider this: If four people witnessed the same event and then got together to fabricate a story, they would make sure their accounts match perfectly. That's what liars do.
 
 But if four people independently testified to what they actually saw—with different emphases, different memories of details, but the same core story—that's what truth looks like.
 

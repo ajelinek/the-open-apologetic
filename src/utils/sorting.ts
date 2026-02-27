@@ -1,10 +1,18 @@
 import type { CollectionEntry } from 'astro:content';
 
 /**
- * Sort content collection entries by their order field in ascending order
+ * Extract numeric order from filename (e.g., "1000_title.md" -> 1000)
  */
-export function sortByOrder<T extends { data: { order: number } }>(entries: T[]): T[] {
-  return entries.sort((a, b) => a.data.order - b.data.order);
+function getFileOrder(entry: { id: string }): number {
+  const match = entry.id.match(/^(\d+)_/);
+  return match ? parseInt(match[1], 10) : 0;
+}
+
+/**
+ * Sort content collection entries by their filename prefix in ascending order
+ */
+export function sortByOrder<T extends { id: string }>(entries: T[]): T[] {
+  return entries.sort((a, b) => getFileOrder(a) - getFileOrder(b));
 }
 
 /**

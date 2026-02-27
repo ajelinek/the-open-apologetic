@@ -2,7 +2,6 @@
 title: "The Problem of Evil"
 description: "Why do bad things happen to good people? If God is all-powerful and all-loving, why does suffering exist?"
 category: "philosophy"
-order: 19
 icon: "😢"
 externalResources: []
 ---

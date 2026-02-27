@@ -2,7 +2,6 @@
 title: "The Resurrection of Jesus"
 description: "The central claim of Christianity. What historical evidence exists for the resurrection? Why do scholars take it seriously?"
 category: "historical"
-order: 21
 icon: "✝️"
 externalResources: []
 ---

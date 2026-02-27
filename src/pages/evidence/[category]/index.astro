@@ -68,7 +68,7 @@ const evidenceCategories = [
   >
     <div class="articles-list">
       {categoryEvidence.map((entry: CollectionEntry<'evidence'>) => (
-        <Card href={`${baseUrl}/evidence/${entry.slug}`} icon={entry.data.icon}>
+        <Card href={`${baseUrl}/evidence/${entry.slug.replace(/\d+_/g, '').split('/').pop() || ''}`} icon={entry.data.icon}>
           <span slot="title">{entry.data.title}</span>
           {entry.data.description}
         </Card>

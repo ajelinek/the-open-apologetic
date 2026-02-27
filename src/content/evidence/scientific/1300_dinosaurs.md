@@ -2,7 +2,6 @@
 title: "Dinosaurs and Evolution"
 description: "How do dinosaurs fit with the Bible? What about carbon dating? Addressing the science vs. faith debates around creation and evolution."
 category: "scientific"
-order: 16
 icon: "🦕"
 externalResources: []
 ---

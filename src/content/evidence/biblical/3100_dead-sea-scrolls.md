@@ -2,7 +2,6 @@
 title: "Dead Sea Scrolls"
 description: "Ancient scrolls dated to 125 BC confirm the accuracy of the Old Testament text over a 1,000-year gap."
 category: "biblical"
-order: 2
 icon: "📖"
 externalResources:
   - title: "The Dead Sea Scrolls"
